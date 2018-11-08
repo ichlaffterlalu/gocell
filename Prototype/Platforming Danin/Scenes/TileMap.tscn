@@ -1,50 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://tileset.png" type="Texture" id=1]
-[ext_resource path="res://tiletest.res" type="TileSet" id=2]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-
+[ext_resource path="res://tiletest.res" type="TileSet" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node"]
-
-[node name="Backwall" type="Sprite" parent="." index="0"]
-
-visible = false
-position = Vector2( -225.129, 424.997 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 200, 0, 50, 50 )
-_sections_unfolded = [ "Region" ]
-
-[node name="Backwall2" type="Sprite" parent="." index="1"]
-
-visible = false
-position = Vector2( -174.951, 375.306 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 200, 0, 50, 50 )
-_sections_unfolded = [ "Region" ]
-
-[node name="Backwall3" type="Sprite" parent="." index="2"]
-
-visible = false
-position = Vector2( -125.208, 325.023 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 200, 0, 50, 50 )
-_sections_unfolded = [ "Region" ]
-
-[node name="TileMap" type="TileMap" parent="." index="3"]
+[node name="TileMap" type="TileMap"]
 
 position = Vector2( -100, 0 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 50, 50 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -65,15 +34,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" type="KinematicBody2D" parent="." index="4"]
+[node name="Player" type="KinematicBody2D" parent="." index="0"]
 
-position = Vector2( -573.055, 274.076 )
+editor/display_folded = true
+position = Vector2( -473.055, 274.076 )
 scale = Vector2( 0.794921, 0.794921 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -81,7 +51,7 @@ id = 1
 
 [node name="Sprite" type="Sprite" parent="Player" index="0"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
@@ -89,15 +59,16 @@ position = Vector2( -5.72205e-006, -1.04904e-005 )
 scale = Vector2( 3.2, 3.2 )
 shape = SubResource( 1 )
 
-[node name="Player2" type="KinematicBody2D" parent="." index="5"]
+[node name="Player2" type="KinematicBody2D" parent="." index="1"]
 
-position = Vector2( -483.058, 133.429 )
+editor/display_folded = true
+position = Vector2( -383.058, 133.429 )
 scale = Vector2( 0.794921, 0.794921 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -106,7 +77,7 @@ id = 2
 [node name="Sprite" type="Sprite" parent="Player2" index="0"]
 
 modulate = Color( 1, 0, 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" index="1"]
@@ -114,24 +85,5 @@ _sections_unfolded = [ "Visibility" ]
 position = Vector2( -5.72205e-006, -1.04904e-005 )
 scale = Vector2( 3.2, 3.2 )
 shape = SubResource( 1 )
-
-[node name="Tilefloors" type="Node" parent="." index="6"]
-
-[node name="Player1Screen" type="ViewportContainer" parent="." index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-stretch = false
-stretch_shrink = 1
 
 

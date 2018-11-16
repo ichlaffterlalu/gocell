@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://General/Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://General/Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://General/Scenes/Elements/World.tscn" type="PackedScene" id=3]
+[ext_resource path="res://General/Scenes/Partials/GameMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://General/Scenes/Animations/Fade.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node"]
 
@@ -167,5 +169,11 @@ editor_draw_drag_margin = false
 script = ExtResource( 2 )
 
 [node name="World" parent="Viewports/ViewportContainer2/Viewport2" index="1" instance=ExtResource( 3 )]
+
+[node name="GameMenu" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="Fade" parent="." index="2" instance=ExtResource( 5 )]
+
+[connection signal="fade_out_finished" from="Fade" to="." method="_on_Fade_fade_out_finished"]
 
 

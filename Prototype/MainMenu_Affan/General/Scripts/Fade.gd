@@ -1,4 +1,4 @@
-extends ColorRect
+extends Node
 
 signal fade_in_finished
 signal fade_out_finished

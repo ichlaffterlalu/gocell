@@ -1,4 +1,4 @@
-extends Control
+extends "res://General/Scripts/SceneFade.gd"
 
 # class member variables go here, for example:
 # var a = 2
@@ -24,10 +24,6 @@ func _on_Fade_fade_in_finished():
 		get_tree().quit()
 	else:
 		get_tree().change_scene(scene_path_to_load)
-
-func _on_Fade_fade_out_finished():
-	$Fade.hide()
-
 
 func _on_Exit_pressed():
 	$Fade.show()

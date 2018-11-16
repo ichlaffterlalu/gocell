@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="Platforming Danin"
+config/name="Go-Cell (Affan's Branch)"
 run/main_scene="res://General/Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 

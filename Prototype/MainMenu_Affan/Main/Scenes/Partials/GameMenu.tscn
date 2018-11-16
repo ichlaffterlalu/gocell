@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Main/Scripts/Menus/GameMenu.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/MainMenuFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Scripts/Animations/Fade.gd" type="Script" id=3]
+[ext_resource path="res://Main/Scenes/Partials/SettingsPopup.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -42,7 +43,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="GameMenu" type="Control" index="0"]
+[node name="GameMenu" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -87,7 +88,8 @@ _sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 [node name="PopupDialog" type="PopupDialog" parent="." index="1"]
 
-modulate = Color( 1, 1, 1, 0 )
+editor/display_folded = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -102,7 +104,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Popup", "Rect", "Visibility" ]
+_sections_unfolded = [ "Focus", "Popup", "Rect", "Visibility" ]
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupDialog" index="0"]
 
@@ -275,6 +277,8 @@ playback_speed = 1.0
 anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 2 )
 blend_times = [  ]
+
+[node name="Settings" parent="." index="2" instance=ExtResource( 4 )]
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 

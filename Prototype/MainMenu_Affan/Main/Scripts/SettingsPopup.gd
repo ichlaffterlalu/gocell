@@ -7,7 +7,7 @@ extends Control
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	$PopupDialog/Settings._on_Button_pressed()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -22,25 +22,5 @@ func _on_Button_pressed():
 		$PopupDialog.popup_centered()
 
 
-func _on_Continue_pressed():
-	$PopupDialog.fade_out()
-
-
-func _on_Restart_pressed():
-	$PopupDialog.fade_out()
-	get_tree().reload_current_scene()
-
-
-func _on_Settings_pressed():
-	$PopupDialog.fade_out()
-	$Settings._on_Button_pressed()
-
-
-func _on_Return_pressed():
-	$PopupDialog.fade_out()
-	get_tree().change_scene("res://Main/Scenes/TitleScreen.tscn")
-
-
 func _on_PopupDialog_fade_out_finished():
-	$PopupDialog.hide()
-
+	$PopupDialog.hide() # replace with function body

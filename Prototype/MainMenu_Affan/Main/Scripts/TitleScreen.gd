@@ -8,7 +8,7 @@ var scene_path_to_load
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	$MainPage/MarginContainer/HBoxContainer/RightSide/CenterContainer/TextureRect/AnimationPlayer.play("rotate")
+	$MainPage/MarginContainer/HBoxContainer/RightSide/Container/Centered/GodotLogo/AnimationPlayer.play("rotate")
 	$Fade.show()
 	$Fade.fade_out()
 	for button in $MainPage/MarginContainer/HBoxContainer/LeftSide/MenuButtons.get_children():
@@ -32,4 +32,4 @@ func _on_Exit_pressed():
 
 
 func _on_Settings_pressed():
-	pass
+	$MainPage/MarginContainer/HBoxContainer/RightSide/Container/Settings._on_Button_pressed()

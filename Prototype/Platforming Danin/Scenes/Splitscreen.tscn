@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Level1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GoCellTileSet.res" type="TileSet" id=4]
 
 [node name="Main" type="Node"]
 
@@ -167,5 +168,7 @@ editor_draw_drag_margin = false
 script = ExtResource( 2 )
 
 [node name="TileMap" parent="Viewports/ViewportContainer2/Viewport2" index="1" instance=ExtResource( 3 )]
+
+tile_set = ExtResource( 4 )
 
 

@@ -13,17 +13,17 @@ var current_max_speed = MAX_SPEED
 var motion = Vector2()
 var moving = false
 var boost = true
-var stamina = 5
 var accel_right = 0
 var accel_left = 0
-
-var timeDict = OS.get_ticks_msec()
+var timeMS = OS.get_ticks_msec()
+var stamina = 5
 
 func _physics_process(delta):
 	var currentTime = OS.get_ticks_msec()
 	
+	# Check ms apakah pada saat 5 detik setelah berjalan
 	if (currentTime / 100 % 50 == timeDict / 100 % 50):
-		print("REFRESH")
+		print("REFRESH STAMINA BACK to 5")
 		stamina = 5
 		current_max_speed = MAX_SPEED
 	

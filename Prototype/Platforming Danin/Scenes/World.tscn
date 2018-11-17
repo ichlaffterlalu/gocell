@@ -11,7 +11,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="Backwall" type="Sprite" parent="." index="0"]
 
@@ -116,7 +116,7 @@ v = 0
 "player",
 ]]
 
-position = Vector2( -483.058, 133.429 )
+position = Vector2( -572.809, 274.149 )
 scale = Vector2( 0.794921, 0.794921 )
 input_pickable = false
 collision_layer = 1

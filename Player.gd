@@ -78,9 +78,6 @@ func _physics_process(delta):
 			if (position.y > 400):
 				finish = true
 				print ("Player ", id , " finish");
-				if (!win):
-					print("Player ", id , " win");
-					win = true
 				
 				
 		

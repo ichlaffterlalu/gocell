@@ -4,11 +4,7 @@
 [ext_resource path="res://Stage/Scripts/Camera2D.gd" type="Script" id=2]
 [ext_resource path="res://Prototype/Scenes/Prototype Stages/Kapiller Maze.tscn" type="PackedScene" id=3]
 
-
-
-
-
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 

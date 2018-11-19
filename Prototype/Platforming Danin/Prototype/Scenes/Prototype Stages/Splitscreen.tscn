@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Stage/Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Stage/Scripts/Camera2D.gd" type="Script" id=2]
-[ext_resource path="res://Prototype/Scenes/Prototype Stages/Level1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Prototype/GoCellTileSet.res" type="TileSet" id=4]
-
-
-
+[ext_resource path="res://Prototype/Scenes/Prototype Stages/World.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node"]
 
@@ -170,8 +166,6 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 2 )
 
-[node name="TileMap" parent="Viewports/ViewportContainer2/Viewport2" index="1" instance=ExtResource( 3 )]
-
-tile_set = ExtResource( 4 )
+[node name="World" parent="Viewports/ViewportContainer2/Viewport2" index="1" instance=ExtResource( 3 )]
 
 

@@ -74,10 +74,9 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				motion.y = JUMP_HEIGHT
 			
-		if (position.x >12800):
-			if (position.y > 5400):
-				finish = true
-				print ("Player ", id , " finish");
+		if (position.y > 5400):
+			finish = true
+			print ("Player ", id , " finish");
 				
 				
 		

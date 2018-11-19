@@ -38,7 +38,7 @@ __meta__ = {
 
 [node name="Player" type="KinematicBody2D" parent="." index="1"]
 
-position = Vector2( -3510.84, 296.797 )
+position = Vector2( -3510, 300 )
 scale = Vector2( 0.794921, 0.794921 )
 input_pickable = false
 collision_layer = 1

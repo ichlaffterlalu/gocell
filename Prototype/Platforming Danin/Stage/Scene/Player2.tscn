@@ -2,8 +2,6 @@
 
 [ext_resource path="res://Prototype/Scenes/Prototype Stages/World.tscn" type="PackedScene" id=1]
 
-
-
 [node name="ViewportContainer" type="ViewportContainer"]
 
 anchor_left = 0.0

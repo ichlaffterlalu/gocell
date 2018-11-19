@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Stage/Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Stage/Scripts/Camera2D.gd" type="Script" id=2]
-[ext_resource path="res://Stage/Scene/Vena Gate.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Stage/Scene/Vena Gate 2.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node" index="0"]
 

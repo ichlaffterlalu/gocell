@@ -7,8 +7,8 @@ extends "res://Main/Scripts/Base/SceneFade.gd"
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	ready_fade()
 	$Background/Container.hide()
-	._ready()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -16,8 +16,7 @@ func _ready():
 #	pass
 
 
-func _on_Fade_fade_out_finished_child():
-	._on_Fade_fade_out_finished()
+func _on_Fade_fade_out_finished():
 	$AnimationPlayer.play("credits")
 	$Background/Container.show()
 

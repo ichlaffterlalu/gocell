@@ -5,9 +5,6 @@
 [ext_resource path="res://Main/Assets/Fonts/Raw/impact.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=4]
 
-
-
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "credits"
@@ -212,10 +209,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 155.0
-margin_top = 150.0
-margin_right = 869.0
-margin_bottom = 449.0
+margin_left = 191.0
+margin_top = 138.0
+margin_right = 833.0
+margin_bottom = 461.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -232,8 +229,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 714.0
-margin_bottom = 45.0
+margin_right = 642.0
+margin_bottom = 50.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -256,9 +253,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 65.0
-margin_right = 714.0
-margin_bottom = 110.0
+margin_top = 70.0
+margin_right = 642.0
+margin_bottom = 120.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -280,9 +277,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 130.0
-margin_right = 714.0
-margin_bottom = 234.0
+margin_top = 140.0
+margin_right = 642.0
+margin_bottom = 253.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -299,8 +296,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 404.0
-margin_bottom = 104.0
+margin_right = 361.0
+margin_bottom = 113.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -317,8 +314,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 404.0
-margin_bottom = 32.0
+margin_right = 361.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -340,9 +337,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 404.0
-margin_bottom = 68.0
+margin_top = 39.0
+margin_right = 361.0
+margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -364,9 +361,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 404.0
-margin_bottom = 104.0
+margin_top = 78.0
+margin_right = 361.0
+margin_bottom = 113.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -387,9 +384,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 444.0
-margin_right = 714.0
-margin_bottom = 104.0
+margin_left = 401.0
+margin_right = 642.0
+margin_bottom = 113.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -405,8 +402,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 270.0
-margin_bottom = 32.0
+margin_right = 241.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -429,9 +426,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 270.0
-margin_bottom = 68.0
+margin_top = 39.0
+margin_right = 241.0
+margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -454,9 +451,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 270.0
-margin_bottom = 104.0
+margin_top = 78.0
+margin_right = 241.0
+margin_bottom = 113.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -479,9 +476,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 254.0
-margin_right = 714.0
-margin_bottom = 299.0
+margin_top = 273.0
+margin_right = 642.0
+margin_bottom = 323.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -499,12 +496,10 @@ _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [node name="Fade" parent="." index="2" instance=ExtResource( 4 )]
 
-visible = false
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [connection signal="fade_in_finished" from="Fade" to="." method="_on_Fade_fade_in_finished"]
 
-[connection signal="fade_out_finished" from="Fade" to="." method="_on_Fade_fade_out_finished_child"]
+[connection signal="fade_out_finished" from="Fade" to="." method="_on_Fade_fade_out_finished"]
 
 

@@ -174,6 +174,10 @@ script = ExtResource( 2 )
 
 [node name="Fade" parent="." index="2" instance=ExtResource( 5 )]
 
-[connection signal="fade_out_finished" from="Fade" to="." method="_on_Fade_fade_out_finished"]
+[connection signal="return_to_title_screen" from="GameMenu" to="." method="_on_GameMenu_return_to_title_screen"]
+
+[connection signal="stage_restart" from="GameMenu" to="." method="_on_GameMenu_stage_restart"]
+
+[connection signal="fade_in_finished" from="Fade" to="." method="_on_Fade_fade_in_finished"]
 
 

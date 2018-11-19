@@ -1,8 +1,7 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+signal stage_restart
+signal return_to_title_screen
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -27,8 +26,7 @@ func _on_Continue_pressed():
 
 
 func _on_Restart_pressed():
-	$PopupDialog.fade_out()
-	get_tree().reload_current_scene()
+	emit_signal("stage_restart")
 
 
 func _on_Settings_pressed():
@@ -37,8 +35,7 @@ func _on_Settings_pressed():
 
 
 func _on_Return_pressed():
-	$PopupDialog.fade_out()
-	get_tree().change_scene("res://Main/Scenes/TitleScreen.tscn")
+	emit_signal("return_to_title_screen")
 
 
 func _on_PopupDialog_fade_out_finished():

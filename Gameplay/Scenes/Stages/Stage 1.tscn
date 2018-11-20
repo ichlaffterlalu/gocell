@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Gameplay/Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Scripts/Elements/Camera2D.gd" type="Script" id=2]
-[ext_resource path="res://Gameplay/Scenes/Elements/World.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Gameplay/Scenes/Maps/Basic Artery.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main/Scenes/Partials/GameMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=5]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Gameplay/Scenes/Elements/World.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prototype/Scenes/Prototype Stages/World.tscn" type="PackedScene" id=1]
 
 [node name="ViewportContainer" type="ViewportContainer"]
 

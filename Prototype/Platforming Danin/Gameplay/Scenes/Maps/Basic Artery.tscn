@@ -1,8 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Stage/Sprite/RevampGoCellTile.res" type="TileSet" id=1]
-[ext_resource path="res://Stage/Scripts/Stage 1/PlayerStage1.gd" type="Script" id=2]
-[ext_resource path="res://Stage/Sprite/icon.png" type="Texture" id=3]
+[ext_resource path="res://Gameplay/Assets/RevampGoCellTile.res" type="TileSet" id=1]
+[ext_resource path="res://Gameplay/Scripts/Elements/Player.gd" type="Script" id=2]
+[ext_resource path="res://Gameplay/Assets/icon.png" type="Texture" id=3]
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -49,6 +55,9 @@ __meta__ = {
 "_edit_group_": true
 }
 id = 1
+finish_line = Vector2( 12800, 240 )
+finish_x_after = true
+finish_y_below = null
 
 [node name="Sprite" type="Sprite" parent="Player" index="0"]
 
@@ -73,6 +82,9 @@ __meta__ = {
 "_edit_group_": true
 }
 id = 2
+finish_line = Vector2( 12800, 240 )
+finish_x_after = true
+finish_y_below = null
 
 [node name="Sprite" type="Sprite" parent="Player2" index="0"]
 

@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Platforming Danin"
-run/main_scene="res://Stage/Scene/Stage 1 Fix.tscn"
+run/main_scene="res://Gameplay/Scenes/Stages/Stage 1.tscn"
 config/icon="res://Stage/Sprite/icon.png"
 
 [input]

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-cb5dc50b9b010bcc52830b8efec98e84.stex"
+path="res://.import/tilegocell.png-fe020d8f8391d89f8e559fca47532ad7.stex"
 
 [deps]
 
-source_file="res://Stage/Sprite/icon.png"
-dest_files=[ "res://.import/icon.png-cb5dc50b9b010bcc52830b8efec98e84.stex" ]
+source_file="res://Gameplay/Assets/tilegocell.png"
+dest_files=[ "res://.import/tilegocell.png-fe020d8f8391d89f8e559fca47532ad7.stex" ]
 
 [params]
 

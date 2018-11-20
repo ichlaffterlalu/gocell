@@ -7,6 +7,10 @@ const SPEED = 400
 const JUMP_HEIGHT = -600
 
 export var id = 0
+export(Vector2) var finish_line
+export(bool) var finish_x_after # if yes, use position.x > finish_line.x in finish condition
+export(bool) var finish_y_below # if no, use position.y < finish_line.y in finish condition
+
 
 var current_max_speed = SPEED
 var motion = Vector2()
@@ -74,8 +78,8 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				motion.y = JUMP_HEIGHT
 			
-		if (position.x >12800):
-			if (position.y < 240):
+		if (finish_line.x < 0 || ((finish_x_after && position.x > finish_line.x) || (!finish_x_after && position.x < finish_line.x))):
+			if (finish_line.y < 0 || ((finish_y_below && position.y > finish_line.y) || (!finish_y_below && position.y < finish_line.y))):
 				finish = true
 				print ("Player ", id , " finish");
 				

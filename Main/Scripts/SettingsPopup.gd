@@ -15,12 +15,14 @@ func _ready():
 #	pass
 
 func _on_Button_pressed():
-	if $PopupDialog.is_visible_in_tree():
+	if self.is_visible_in_tree():
 		$PopupDialog.fade_out()
 	else:
+		self.show()
 		$PopupDialog.fade_in()
 		$PopupDialog.popup_centered()
 
 
 func _on_PopupDialog_fade_out_finished():
 	$PopupDialog.hide() # replace with function body
+	self.hide()

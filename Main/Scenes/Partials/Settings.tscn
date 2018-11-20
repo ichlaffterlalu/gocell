@@ -1,61 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main/Scripts/Settings.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/20.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Scripts/Animations/Fade.gd" type="Script" id=3]
+[ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=1]
+[node name="Settings" type="MarginContainer" index="0"]
 
-resource_name = "fade_in"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-
-resource_name = "fade_out"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[node name="Settings" type="Control" index="0"]
-
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 600.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 600, 400 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect", "Visibility" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "Visibility", "custom_constants" ]
 
 [node name="TabContainer" type="TabContainer" parent="." index="0"]
 
@@ -64,19 +31,20 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 643.0
-margin_bottom = 491.0
+margin_left = 8.0
+margin_right = 600.0
+margin_bottom = 400.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
 tab_align = 0
 tabs_visible = true
 script = ExtResource( 3 )
-_sections_unfolded = [ "Rect", "Visibility", "custom_constants", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Visibility", "custom_constants", "custom_fonts" ]
 
 [node name="Controls" type="Tabs" parent="TabContainer" index="0"]
 
@@ -85,7 +53,7 @@ anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 41.0
+margin_top = 44.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -115,7 +83,7 @@ custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
-_sections_unfolded = [ "custom_constants" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Container" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer" index="0"]
 
@@ -125,8 +93,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 615.0
-margin_bottom = 426.0
+margin_right = 564.0
+margin_bottom = 332.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -141,8 +109,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 295.0
-margin_bottom = 406.0
+margin_right = 270.0
+margin_bottom = 312.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -158,8 +126,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 295.0
-margin_bottom = 23.0
+margin_right = 270.0
+margin_bottom = 26.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -179,9 +147,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 299.0
-margin_right = 595.0
-margin_bottom = 406.0
+margin_left = 274.0
+margin_right = 544.0
+margin_bottom = 312.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -197,8 +165,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 296.0
-margin_bottom = 23.0
+margin_right = 270.0
+margin_bottom = 26.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -213,14 +181,13 @@ max_lines_visible = -1
 
 [node name="Sounds" type="Tabs" parent="TabContainer" index="1"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 41.0
+margin_top = 44.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -260,8 +227,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 615.0
-margin_bottom = 97.0
+margin_right = 564.0
+margin_bottom = 106.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -278,8 +245,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 138.0
-margin_bottom = 77.0
+margin_right = 120.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -294,8 +261,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 138.0
-margin_bottom = 23.0
+margin_right = 120.0
+margin_bottom = 26.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -315,9 +282,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 27.0
-margin_right = 104.0
-margin_bottom = 50.0
+margin_top = 30.0
+margin_right = 92.0
+margin_bottom = 56.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -336,9 +303,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 54.0
-margin_right = 118.0
-margin_bottom = 77.0
+margin_top = 60.0
+margin_right = 112.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -357,9 +324,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 158.0
-margin_right = 595.0
-margin_bottom = 77.0
+margin_left = 140.0
+margin_right = 352.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -375,9 +342,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 3.0
-margin_right = 437.0
-margin_bottom = 19.0
+margin_top = 5.0
+margin_right = 212.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -403,9 +370,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 30.0
-margin_right = 437.0
-margin_bottom = 46.0
+margin_top = 35.0
+margin_right = 212.0
+margin_bottom = 51.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -431,9 +398,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 57.0
-margin_right = 437.0
-margin_bottom = 73.0
+margin_top = 65.0
+margin_right = 212.0
+margin_bottom = 81.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -453,16 +420,7 @@ tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
 
-[node name="FadeAnimation" type="AnimationPlayer" parent="TabContainer" index="2"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/fade_in = SubResource( 1 )
-anims/fade_out = SubResource( 2 )
-blend_times = [  ]
+[node name="FadeAnimation" parent="TabContainer" index="2" instance=ExtResource( 4 )]
 
 [connection signal="fade_out_finished" from="TabContainer" to="." method="_on_TabContainer_fade_out_finished"]
 

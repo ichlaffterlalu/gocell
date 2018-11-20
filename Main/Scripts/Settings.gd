@@ -19,8 +19,10 @@ func _on_Button_pressed():
 		$TabContainer.fade_out()
 	else:
 		$TabContainer.fade_in()
+		self.show()
 		$TabContainer.show()
 
 
 func _on_TabContainer_fade_out_finished():
 	$TabContainer.hide() # replace with function body
+	self.hide()

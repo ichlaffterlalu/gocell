@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Gameplay/Scripts/Elements/Player.gd" type="Script" id=1]
+[ext_resource path="res://Gameplay/Assets/icon.png" type="Texture" id=2]
+[ext_resource path="res://Main/Assets/Fonts/16.tres" type="DynamicFont" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Player" type="KinematicBody2D"]
+
+position = Vector2( -3510, 300 )
+scale = Vector2( 0.794921, 0.794921 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+id = 0
+finish_line = Vector2( 0, 0 )
+finish_x_after = false
+finish_y_below = null
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -5.72205e-006, -1.04904e-005 )
+scale = Vector2( 3.2, 3.2 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -58.0
+margin_right = 31.0
+margin_bottom = -32.0
+grow_vertical = 0
+rect_rotation = 0.159763
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "Player"
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

@@ -1,21 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Gameplay/Assets/RevampGoCellTile.res" type="TileSet" id=1]
-[ext_resource path="res://Gameplay/Scripts/Elements/Player.gd" type="Script" id=2]
-[ext_resource path="res://Gameplay/Assets/icon.png" type="Texture" id=3]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+[ext_resource path="res://Gameplay/Scripts/Elements/World.gd" type="Script" id=1]
+[ext_resource path="res://Gameplay/Assets/RevampGoCellTile.res" type="TileSet" id=2]
+[ext_resource path="res://Gameplay/Scenes/Elements/Player.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Node"]
+
+script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 position = Vector2( -100, 0 )
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 50, 50 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -36,61 +33,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" type="KinematicBody2D" parent="." index="1"]
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( -3510, 300 )
-scale = Vector2( 0.794921, 0.794921 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 id = 1
 finish_line = Vector2( 12800, 240 )
 finish_x_after = true
-finish_y_below = null
+finish_y_below = false
 
-[node name="Sprite" type="Sprite" parent="Player" index="0"]
+[node name="Player2" parent="." index="2" instance=ExtResource( 3 )]
 
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
-
-position = Vector2( -5.72205e-006, -1.04904e-005 )
-scale = Vector2( 3.2, 3.2 )
-shape = SubResource( 1 )
-
-[node name="Player2" type="KinematicBody2D" parent="." index="2"]
-
-position = Vector2( -3509.46, 460.608 )
-scale = Vector2( 0.794921, 0.794921 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( -3508, 453 )
+_sections_unfolded = [ "Visibility" ]
 id = 2
 finish_line = Vector2( 12800, 240 )
 finish_x_after = true
-finish_y_below = null
-
-[node name="Sprite" type="Sprite" parent="Player2" index="0"]
-
-modulate = Color( 1, 0, 0, 1 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" index="1"]
-
-position = Vector2( -5.72205e-006, -1.04904e-005 )
-scale = Vector2( 3.2, 3.2 )
-shape = SubResource( 1 )
 
 [node name="Tilefloors" type="Node" parent="." index="3"]
 
@@ -110,5 +66,13 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
+
+[connection signal="first_move" from="Player" to="." method="_on_Player_first_move"]
+
+[connection signal="player_finished" from="Player" to="." method="_on_Player_finished"]
+
+[connection signal="first_move" from="Player2" to="." method="_on_Player_first_move"]
+
+[connection signal="player_finished" from="Player2" to="." method="_on_Player_finished"]
 
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Gameplay/Assets/cobatyle.tres" type="TileSet" id=1]
+
+[node name="Node" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+position = Vector2( 0, -16 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 100, 100 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = true
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65538, 0, 0, 131075, 0, 0, 196612, 0, 0, 262149, 0, 0, 327686, 0, 0, 327695, 0, 0, 393223, 0, 0, 393231, 0, 0, 458760, 0, 0, 458767, 0, 0, 524297, 0, 0, 524298, 0, 0, 524303, 0, 0, 589835, 0, 0, 589839, 0, 0, 655375, 0, 0, 720910, 0, 0, 786446, 0, 0, 851982, 0, 0, 917518, 0, 0, 983053, 0, 0, 1048588, 0, 0, 1114123, 0, 0, 1179659, 0, 0, 1245194, 0, 0, 1310729, 0, 0, 1376265, 0, 0, 1441800, 0, 0, 1507335, 0, 0, 1572869, 0, 0, 1572870, 0, 0 )
+_sections_unfolded = [ "Collision", "Material", "Occluder", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+

@@ -34,8 +34,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 295.0
+margin_right = 640.0
+margin_bottom = 175.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -51,7 +51,7 @@ _sections_unfolded = [ "Size Flags" ]
 [node name="Viewport1" type="Viewport" parent="Viewports/ViewportContainer1" index="1"]
 
 arvr = false
-size = Vector2( 1024, 295 )
+size = Vector2( 640, 175 )
 own_world = false
 world = null
 transparent_bg = false
@@ -106,9 +106,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 305.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_top = 185.0
+margin_right = 640.0
+margin_bottom = 360.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -124,7 +124,7 @@ _sections_unfolded = [ "Size Flags" ]
 [node name="Viewport2" type="Viewport" parent="Viewports/ViewportContainer2" index="1"]
 
 arvr = false
-size = Vector2( 1024, 295 )
+size = Vector2( 640, 175 )
 own_world = false
 world = null
 transparent_bg = false
@@ -178,6 +178,9 @@ script = ExtResource( 3 )
 [node name="GameMenu" parent="." index="1" instance=ExtResource( 5 )]
 
 [node name="Fade" parent="." index="2" instance=ExtResource( 6 )]
+
+margin_right = 0.0
+margin_bottom = 0.0
 
 [connection signal="lose_1" from="." to="Viewports/ViewportContainer1/FinishedLabel" method="_on_Player_lose"]
 

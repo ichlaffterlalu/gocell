@@ -105,9 +105,9 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				_check_started()
 				motion.y = JUMP_HEIGHT
-			
-		if (finish_line.x < 0 || ((finish_x_after && position.x > finish_line.x) || (!finish_x_after && position.x < finish_line.x))):
-			if (finish_line.y < 0 || ((finish_y_below && position.y > finish_line.y) || (!finish_y_below && position.y < finish_line.y))):
+		print(position)
+		if (finish_line.x > 0 && ((finish_x_after && position.x > finish_line.x) || (!finish_x_after && position.x < finish_line.x))):
+			if (finish_line.y > 0 && ((finish_y_below && position.y > finish_line.y) || (!finish_y_below && position.y < finish_line.y))):
 				finish = true
 				finish_time = OS.get_ticks_msec()
 				

@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 const UP = Vector2(0,-1)
-const GRAVITY = 20
-const ACCEL = 25
-const SPEED = 400
-const JUMP_HEIGHT = -600
+const GRAVITY = 20/2
+const ACCEL = 25/2
+const SPEED = 400/2
+const JUMP_HEIGHT = -600/2
 
 signal first_move(start_time)
 signal player_finished(player_node)
@@ -38,7 +38,7 @@ func _init_change_color_modulation(char_id):
 	if char_id == 1:
 		$Sprite.self_modulate = Color(1,1,1,1)
 	elif char_id == 2:
-		$Sprite.self_modulate = Color(1,0,0,1)
+		$Sprite.self_modulate = Color(1,1,0,1)
 	else:
 		$Sprite.self_modulate = Color(0,0,0,1)
 
@@ -64,8 +64,8 @@ func _physics_process(delta):
 				print (stamina)
 				if motion.x > 0:
 					boost = true
-					motion.x += 1200
-					current_max_speed += 100
+					motion.x += 1200/2
+					current_max_speed += 100/2
 				if boost:
 					print ("RIGHT BOOST. Current maximum speed = ",current_max_speed)
 					
@@ -76,8 +76,8 @@ func _physics_process(delta):
 				print (stamina)
 				if motion.x < 0:
 					boost = true
-					motion.x -= 1200
-					current_max_speed += 100
+					motion.x -= 1200/2
+					current_max_speed += 100/2
 				if boost:
 					print ("LEFT BOOST. Current maximum speed = ",current_max_speed)
 					

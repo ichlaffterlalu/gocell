@@ -47,5 +47,3 @@ func _on_FadeAnimation_animation_finished(anim_name):
 		emit_signal("finished_waiting")
 
 
-func _on_Main_win_2(player_node):
-	pass # replace with function body

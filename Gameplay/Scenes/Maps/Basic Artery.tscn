@@ -4,7 +4,7 @@
 [ext_resource path="res://Gameplay/Assets/EnvTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Gameplay/Scenes/Elements/Player.tscn" type="PackedScene" id=3]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -39,7 +39,7 @@ position = Vector2( -1082.4, 85.0449 )
 scale = Vector2( 0.2553, 0.2553 )
 _sections_unfolded = [ "Transform", "collision" ]
 id = 1
-finish_line = Vector2( 12800, 240 )
+finish_line = Vector2( 4100, -100 )
 finish_x_after = true
 finish_y_below = false
 
@@ -49,7 +49,7 @@ position = Vector2( -1079.94, 146.727 )
 scale = Vector2( 0.277197, 0.277197 )
 _sections_unfolded = [ "Visibility", "collision" ]
 id = 2
-finish_line = Vector2( 12800, 240 )
+finish_line = Vector2( 4100, -100 )
 finish_x_after = true
 
 [node name="Tilefloors" type="Node" parent="." index="3"]

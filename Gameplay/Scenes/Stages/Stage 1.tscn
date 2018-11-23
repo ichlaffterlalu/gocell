@@ -194,7 +194,7 @@ margin_bottom = 0.0
 
 [connection signal="win_1" from="." to="Viewports/ViewportContainer1/FinishedLabel" method="_on_Player_win"]
 
-[connection signal="win_2" from="." to="Viewports/ViewportContainer2/FinishedLabel" method="_on_Main_win_2"]
+[connection signal="win_2" from="." to="Viewports/ViewportContainer2/FinishedLabel" method="_on_Player_win"]
 
 [connection signal="finished_waiting" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
 

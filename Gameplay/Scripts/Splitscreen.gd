@@ -69,3 +69,4 @@ func _on_FinishedLabel_finished_waiting():
 	yield(t, "timeout")
 	_on_GameMenu_return_to_title_screen()
 	t.queue_free()
+

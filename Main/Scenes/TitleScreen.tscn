@@ -49,7 +49,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
 }
 
-[node name="TitleScreen" type="Control" index="0"]
+[node name="TitleScreen" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -511,6 +511,7 @@ margin_left = 361.0
 margin_top = 240.0
 margin_right = 361.0
 margin_bottom = 240.0
+rect_rotation = 359.99
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -549,7 +550,8 @@ margin_bottom = 440.0
 
 [node name="Fade" parent="." index="1" instance=ExtResource( 10 )]
 
-visible = false
+margin_right = 640.0
+margin_bottom = 360.0
 _sections_unfolded = [ "Rect", "Visibility" ]
 
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Settings" to="." method="_on_Settings_pressed"]

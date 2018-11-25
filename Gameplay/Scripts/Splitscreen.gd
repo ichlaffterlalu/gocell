@@ -6,6 +6,7 @@ signal waiting_1()
 signal waiting_2()
 signal lose_1(player_node)
 signal lose_2(player_node)
+signal game_change_status(active_status)
 
 onready var viewport1 = $Viewports/ViewportContainer1/Viewport1
 onready var viewport2 = $Viewports/ViewportContainer2/Viewport2
@@ -70,3 +71,5 @@ func _on_FinishedLabel_finished_waiting():
 	_on_GameMenu_return_to_title_screen()
 	t.queue_free()
 
+func _on_FinishedLabel_start_game():
+	emit_signal("game_change_status", true)

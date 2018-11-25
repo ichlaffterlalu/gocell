@@ -10,8 +10,8 @@ config_version=3
 
 [application]
 
-config/name="Go-Cell (Integration Branch)"
-run/main_scene="res://Gameplay/Scenes/Stages/Stage 1.tscn"
+config/name="Go-Cell (Affan's Branch after Integration 1)"
+run/main_scene="res://Main/Scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -26,3 +26,21 @@ func _on_Player_finished(player_node):
 func _on_Player_first_move(start_time):
 	if game_start_time == 0:
 		game_start_time = start_time
+
+
+func _on_Main_start_game():
+	$Player.set_player_active(true)
+	$Player2.set_player_active(true)
+
+
+func _on_game_change_status(active_status):
+	$Player.set_player_active(active_status)
+	$Player2.set_player_active(active_status)
+
+
+func _on_GameMenu_game_change_status(active_status):
+	pass # replace with function body
+
+
+func _on_Main_game_change_status(active_status):
+	pass # replace with function body

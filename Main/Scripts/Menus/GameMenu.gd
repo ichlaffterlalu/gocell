@@ -1,7 +1,8 @@
 extends Control
 
-signal stage_restart
-signal return_to_title_screen
+signal game_change_status(active_status)
+signal stage_restart()
+signal return_to_title_screen()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -17,6 +18,7 @@ func _on_Button_pressed():
 	if $PopupDialog.is_visible_in_tree():
 		$PopupDialog.fade_out()
 	else:
+		emit_signal("game_change_status", false)
 		$PopupDialog.fade_in()
 		$PopupDialog.popup_centered()
 
@@ -40,4 +42,5 @@ func _on_Return_pressed():
 
 func _on_PopupDialog_fade_out_finished():
 	$PopupDialog.hide()
+	emit_signal("game_change_status", true)
 

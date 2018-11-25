@@ -19,8 +19,9 @@ var current_max_speed = SPEED
 var motion = Vector2()
 var moving = false
 var started = false
-var finish = false
+var player_active = false
 var finish_time = 0
+var finish = false
 var boost = true
 var stamina = 5
 var accel_right = 0
@@ -30,6 +31,10 @@ var timeDict = OS.get_ticks_msec()
 
 func set_finish_time(time):
 	finish_time = time
+
+func set_player_active(val):
+	if (!finish):
+		player_active = val
 
 func _ready():
 	_init_change_color_modulation(id)
@@ -48,11 +53,10 @@ func _check_started():
 	started = true
 
 func _physics_process(delta):
-	if (!finish):
+	if (player_active):
 		var currentTime = OS.get_ticks_msec()
 		
 		if (currentTime / 100 % 50 == timeDict / 100 % 50):
-			print("REFRESH")
 			stamina = 5
 			current_max_speed = SPEED
 		
@@ -105,10 +109,11 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				_check_started()
 				motion.y = JUMP_HEIGHT
-		print(position)
+		
 		if (finish_line.x > 0 && ((finish_x_after && position.x > finish_line.x) || (!finish_x_after && position.x < finish_line.x))):
 			if (finish_line.y > 0 && ((finish_y_below && position.y > finish_line.y) || (!finish_y_below && position.y < finish_line.y))):
 				finish = true
+				player_active = false
 				finish_time = OS.get_ticks_msec()
 				
 				print ("Player ", id , " finish");

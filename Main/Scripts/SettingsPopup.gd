@@ -26,3 +26,4 @@ func _on_Button_pressed():
 func _on_PopupDialog_fade_out_finished():
 	$PopupDialog.hide() # replace with function body
 	self.hide()
+	get_root().paused = false

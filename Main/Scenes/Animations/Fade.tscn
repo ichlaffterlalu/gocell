@@ -40,8 +40,9 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="Fade" type="ColorRect"]
+[node name="Fade" type="ColorRect" index="0"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -56,10 +57,11 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="FadeAnimation" type="AnimationPlayer" parent="." index="0"]
 
+pause_mode = 2
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
@@ -68,6 +70,7 @@ playback_speed = 1.0
 anims/fade_in = SubResource( 1 )
 anims/fade_out = SubResource( 2 )
 blend_times = [  ]
+_sections_unfolded = [ "Pause" ]
 
 [connection signal="animation_finished" from="FadeAnimation" to="." method="_on_FadeAnimation_animation_finished"]
 

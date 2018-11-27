@@ -5,16 +5,15 @@
 [ext_resource path="res://Main/Scripts/Animations/Fade.gd" type="Script" id=3]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
 
-[node name="Settings" type="MarginContainer" index="0"]
+[node name="Settings" type="MarginContainer"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 600.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 600, 400 )
+margin_right = 360.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 360, 240 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -32,8 +31,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 600.0
-margin_bottom = 400.0
+margin_right = 360.0
+margin_bottom = 240.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -46,7 +45,7 @@ tabs_visible = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Size Flags", "Visibility", "custom_constants", "custom_fonts" ]
 
-[node name="Controls" type="Tabs" parent="TabContainer" index="0"]
+[node name="Game Data" type="Tabs" parent="TabContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -67,7 +66,7 @@ tab_align = 1
 scrolling_enabled = true
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Game Data" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -85,7 +84,7 @@ custom_constants/margin_left = 20
 custom_constants/margin_bottom = 20
 _sections_unfolded = [ "Rect", "custom_constants" ]
 
-[node name="Container" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer" index="0"]
+[node name="Player1" type="VBoxContainer" parent="TabContainer/Game Data/MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -93,91 +92,94 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 564.0
-margin_bottom = 332.0
+margin_right = 324.0
+margin_bottom = 172.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_constants/separation = 20
+alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="Statistics" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 304.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Show Detailed Statistics"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_constants", "custom_fonts" ]
 
-[node name="Player1" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/Container" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 270.0
-margin_bottom = 312.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/Container/Player1" index="0"]
+[node name="ResetLeaderboards" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 270.0
-margin_bottom = 26.0
+margin_top = 52.0
+margin_right = 304.0
+margin_bottom = 84.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 2
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
+size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
-text = "Player 1 (Up)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Reset Leaderboards"
+flat = false
+align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Player2" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/Container" index="1"]
+[node name="ResetOverallGame" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 274.0
-margin_right = 544.0
-margin_bottom = 312.0
+margin_top = 104.0
+margin_right = 304.0
+margin_bottom = 136.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/Container/Player2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 270.0
-margin_bottom = 26.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
+focus_mode = 2
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 4
+size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
-text = "Player 2 (Bottom)"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Reset Overall Game"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Sounds" type="Tabs" parent="TabContainer" index="1"]
 
@@ -227,14 +229,14 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 564.0
-margin_bottom = 106.0
+margin_right = 324.0
+margin_bottom = 172.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
+size_flags_horizontal = 7
+size_flags_vertical = 7
 custom_constants/separation = 20
 alignment = 0
 _sections_unfolded = [ "Size Flags", "custom_constants" ]
@@ -245,15 +247,18 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 27.0
 margin_right = 120.0
-margin_bottom = 86.0
+margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 2
+size_flags_vertical = 6
+custom_constants/separation = 10
 alignment = 0
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="Master" type="Label" parent="TabContainer/Sounds/MarginContainer/Container/Labels" index="0"]
 
@@ -282,9 +287,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 30.0
+margin_top = 36.0
 margin_right = 92.0
-margin_bottom = 56.0
+margin_bottom = 62.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -303,9 +308,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 60.0
+margin_top = 72.0
 margin_right = 112.0
-margin_bottom = 86.0
+margin_bottom = 98.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -325,16 +330,18 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 140.0
-margin_right = 352.0
-margin_bottom = 86.0
+margin_top = 27.0
+margin_right = 304.0
+margin_bottom = 125.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 6
+custom_constants/separation = 15
 alignment = 0
-_sections_unfolded = [ "Size Flags" ]
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
 [node name="Master" type="HSlider" parent="TabContainer/Sounds/MarginContainer/Container/Sliders" index="0"]
 
@@ -342,9 +349,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 5.0
-margin_right = 212.0
-margin_bottom = 21.0
+margin_top = 3.0
+margin_right = 164.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -370,9 +377,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 35.0
-margin_right = 212.0
-margin_bottom = 51.0
+margin_top = 40.0
+margin_right = 164.0
+margin_bottom = 56.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -398,9 +405,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 65.0
-margin_right = 212.0
-margin_bottom = 81.0
+margin_top = 78.0
+margin_right = 164.0
+margin_bottom = 94.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2

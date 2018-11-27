@@ -1,56 +1,37 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main/Scripts/Menus/SelectStage.gd" type="Script" id=1]
-[ext_resource path="res://Main/Assets/Fonts/24.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=3]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
 
-[node name="SelectStage" type="ColorRect" index="0"]
+[node name="SelectStage" type="MarginContainer"]
 
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 320.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 600, 400 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -640.0
+margin_bottom = -360.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.4, 0, 0, 1 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Focus", "Hint", "Material", "Rect", "Size Flags", "Theme", "Visibility" ]
 
-[node name="Main" type="MarginContainer" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_constants/margin_right = 0
-custom_constants/margin_top = 0
-custom_constants/margin_left = 0
-custom_constants/margin_bottom = 0
-_sections_unfolded = [ "Material", "Rect", "custom_constants" ]
-
-[node name="Centered" type="CenterContainer" parent="Main" index="0"]
+[node name="Main" type="CenterContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 600.0
-margin_bottom = 400.0
+margin_left = 8.0
+margin_right = 424.0
+margin_bottom = 96.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -59,16 +40,14 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = false
 
-[node name="Container" type="VBoxContainer" parent="Main/Centered" index="0"]
+[node name="Container" type="VBoxContainer" parent="Main" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 155.0
-margin_top = 156.0
-margin_right = 445.0
-margin_bottom = 244.0
+margin_right = 416.0
+margin_bottom = 96.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -79,14 +58,15 @@ custom_constants/separation = 20
 alignment = 1
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Message" type="Label" parent="Main/Centered/Container" index="0"]
+[node name="Message" type="Label" parent="Main/Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 290.0
-margin_bottom = 31.0
+margin_left = 36.0
+margin_right = 379.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -102,15 +82,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags", "Theme" ]
 
-[node name="Stages" type="HBoxContainer" parent="Main/Centered/Container" index="1"]
+[node name="Stages" type="HBoxContainer" parent="Main/Container" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 51.0
-margin_right = 290.0
-margin_bottom = 88.0
+margin_top = 55.0
+margin_right = 416.0
+margin_bottom = 96.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -121,15 +101,14 @@ custom_constants/separation = 20
 alignment = 1
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="1" type="Button" parent="Main/Centered/Container/Stages" index="0"]
+[node name="1" type="Button" parent="Main/Container/Stages" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 3.0
-margin_right = 139.0
-margin_bottom = 37.0
+margin_right = 82.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -142,21 +121,21 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Artery (Easy)"
+text = "Artery"
 flat = false
 align = 1
 script = ExtResource( 3 )
-scene_to_load = "Scenes/Stages/Stage 1.tscn"
+scene_to_load = null
 
-[node name="2" type="Button" parent="Main/Centered/Container/Stages" index="1"]
+[node name="2" type="Button" parent="Main/Container/Stages" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 159.0
-margin_right = 287.0
-margin_bottom = 37.0
+margin_left = 102.0
+margin_right = 172.0
+margin_bottom = 41.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -169,11 +148,38 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Vena (Hard)"
+text = "Vena"
 flat = false
 align = 1
 script = ExtResource( 3 )
-scene_to_load = "Scenes/Stages/Stage 2.tscn"
+scene_to_load = null
+
+[node name="3" type="Button" parent="Main/Container/Stages" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 192.0
+margin_right = 416.0
+margin_bottom = 41.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Unknown Stage 3?"
+flat = false
+align = 1
+script = ExtResource( 3 )
+scene_to_load = null
 
 [node name="FadeAnimation" parent="." index="1" instance=ExtResource( 4 )]
 

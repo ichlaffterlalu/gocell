@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main/Scripts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/72.tres" type="DynamicFont" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=5]
 [ext_resource path="res://Main/Assets/Fonts/Raw/impact.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Main/Assets/icon.png" type="Texture" id=7]
-[ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Main/Scripts/Animations/GodotLogo.gd" type="Script" id=8]
+[ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -21,6 +23,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [sub_resource type="Animation" id=2]
 
+resource_name = "rotate"
 length = 2.0
 loop = true
 step = 0.1
@@ -49,7 +52,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
 }
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -294,7 +297,7 @@ custom_constants/separation = 20
 alignment = 0
 _sections_unfolded = [ "Size Flags", "Theme", "custom_constants" ]
 
-[node name="Achievements" type="LinkButton" parent="MainPage/Container/HBox/LeftSide/MenuButtons/Scenes" index="0"]
+[node name="Leaderboards" type="LinkButton" parent="MainPage/Container/HBox/LeftSide/MenuButtons/Scenes" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -319,7 +322,7 @@ text = "Leaderboards"
 underline = 1
 script = ExtResource( 5 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
-scene_to_load = "res://Achievements/Scenes/Achievements.tscn"
+scene_to_load = "res://Leaderboards/Scenes/Leaderboards.tscn"
 
 [node name="Credits" type="LinkButton" parent="MainPage/Container/HBox/LeftSide/MenuButtons/Scenes" index="1"]
 
@@ -520,34 +523,30 @@ size_flags_vertical = 1
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 4
+script = ExtResource( 8 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo" index="0"]
+[node name="FadeAnimation" parent="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo" index="0" instance=ExtResource( 9 )]
 
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
 anims/rotate = SubResource( 2 )
-blend_times = [  ]
-_sections_unfolded = [ "Playback Options" ]
 
-[node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 8 )]
+[node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 10 )]
 
-margin_left = 61.0
-margin_top = 40.0
-margin_right = 661.0
-margin_bottom = 440.0
+margin_left = 181.0
+margin_top = 120.0
+margin_right = 541.0
+margin_bottom = 360.0
 
-[node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 9 )]
+[node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 11 )]
 
-margin_left = 61.0
-margin_top = 40.0
-margin_right = 661.0
-margin_bottom = 440.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 149.0
+margin_top = 192.0
+margin_right = 573.0
+margin_bottom = 288.0
 
-[node name="Fade" parent="." index="1" instance=ExtResource( 10 )]
+[node name="Fade" parent="." index="1" instance=ExtResource( 12 )]
 
 margin_right = 640.0
 margin_bottom = 360.0
@@ -556,6 +555,10 @@ _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Settings" to="." method="_on_Settings_pressed"]
 
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Exit" to="." method="_on_Exit_pressed"]
+
+[connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo" method="_on_FadeAnimation_animation_finished"]
+
+[connection signal="fade_out_finished" from="MainPage/Container/HBox/RightSide/Dashboard/SelectStage" to="." method="_on_SelectStage_fade_out_finished"]
 
 [connection signal="user_choosed" from="MainPage/Container/HBox/RightSide/Dashboard/SelectStage" to="." method="_on_SelectStage_user_choosed"]
 

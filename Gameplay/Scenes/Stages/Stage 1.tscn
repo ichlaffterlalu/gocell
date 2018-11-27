@@ -198,14 +198,6 @@ margin_bottom = 0.0
 
 [connection signal="win_2" from="." to="Viewports/ViewportContainer2/FinishedLabel" method="_on_Player_win"]
 
-[connection signal="finished_waiting" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
-
-[connection signal="start_game" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_start_game"]
-
-[connection signal="finished_waiting" from="Viewports/ViewportContainer2/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
-
-[connection signal="start_game" from="Viewports/ViewportContainer2/FinishedLabel" to="." method="_on_FinishedLabel_start_game"]
-
 [connection signal="player_finished" from="Viewports/ViewportContainer2/Viewport2/World" to="." method="_on_World_player_finished"]
 
 [connection signal="game_change_status" from="GameMenu" to="Viewports/ViewportContainer2/Viewport2/World" method="_on_game_change_status"]

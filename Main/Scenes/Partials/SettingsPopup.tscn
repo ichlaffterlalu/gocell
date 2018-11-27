@@ -5,7 +5,7 @@
 [ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
 
-[node name="Settings" type="Control" index="0"]
+[node name="Settings" type="Control"]
 
 pause_mode = 2
 visible = false

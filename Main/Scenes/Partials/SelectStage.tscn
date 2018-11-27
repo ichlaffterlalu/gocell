@@ -125,7 +125,7 @@ text = "Artery"
 flat = false
 align = 1
 script = ExtResource( 3 )
-scene_to_load = null
+scene_to_load = "Scenes/Stages/Stage 1.tscn"
 
 [node name="2" type="Button" parent="Main/Container/Stages" index="1"]
 
@@ -152,7 +152,7 @@ text = "Vena"
 flat = false
 align = 1
 script = ExtResource( 3 )
-scene_to_load = null
+scene_to_load = "Scenes/Stages/Stage 2.tscn"
 
 [node name="3" type="Button" parent="Main/Container/Stages" index="2"]
 
@@ -179,7 +179,7 @@ text = "Unknown Stage 3?"
 flat = false
 align = 1
 script = ExtResource( 3 )
-scene_to_load = null
+scene_to_load = "Scenes/Stages/Stage 3.tscn"
 
 [node name="FadeAnimation" parent="." index="1" instance=ExtResource( 4 )]
 

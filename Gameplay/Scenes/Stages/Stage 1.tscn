@@ -7,7 +7,7 @@
 [ext_resource path="res://Main/Scenes/Partials/GameMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -197,6 +197,14 @@ margin_bottom = 0.0
 [connection signal="win_1" from="." to="Viewports/ViewportContainer1/FinishedLabel" method="_on_Player_win"]
 
 [connection signal="win_2" from="." to="Viewports/ViewportContainer2/FinishedLabel" method="_on_Player_win"]
+
+[connection signal="finished_waiting" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
+
+[connection signal="start_game" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_start_game"]
+
+[connection signal="finished_waiting" from="Viewports/ViewportContainer2/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
+
+[connection signal="start_game" from="Viewports/ViewportContainer2/FinishedLabel" to="." method="_on_FinishedLabel_start_game"]
 
 [connection signal="player_finished" from="Viewports/ViewportContainer2/Viewport2/World" to="." method="_on_World_player_finished"]
 

@@ -37,6 +37,10 @@ ui_left_1=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name"
 ui_right_1=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
  ]
 
+[gdnative]
+
+singletons=[  ]
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

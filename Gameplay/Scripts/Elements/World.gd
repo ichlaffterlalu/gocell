@@ -36,11 +36,3 @@ func _on_Main_start_game():
 func _on_game_change_status(active_status):
 	$Player.set_player_active(active_status)
 	$Player2.set_player_active(active_status)
-
-
-func _on_GameMenu_game_change_status(active_status):
-	pass # replace with function body
-
-
-func _on_Main_game_change_status(active_status):
-	pass # replace with function body

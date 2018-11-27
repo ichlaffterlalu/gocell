@@ -182,7 +182,7 @@ script = ExtResource( 3 )
 margin_right = 0.0
 margin_bottom = 0.0
 
-[connection signal="game_change_status" from="." to="Viewports/ViewportContainer2/Viewport2/World" method="_on_Main_game_change_status"]
+[connection signal="game_change_status" from="." to="Viewports/ViewportContainer2/Viewport2/World" method="_on_game_change_status"]
 
 [connection signal="lose_1" from="." to="Viewports/ViewportContainer1/FinishedLabel" method="_on_Player_lose"]
 
@@ -206,7 +206,7 @@ margin_bottom = 0.0
 
 [connection signal="player_finished" from="Viewports/ViewportContainer2/Viewport2/World" to="." method="_on_World_player_finished"]
 
-[connection signal="game_change_status" from="GameMenu" to="Viewports/ViewportContainer2/Viewport2/World" method="_on_GameMenu_game_change_status"]
+[connection signal="game_change_status" from="GameMenu" to="Viewports/ViewportContainer2/Viewport2/World" method="_on_game_change_status"]
 
 [connection signal="return_to_title_screen" from="GameMenu" to="." method="_on_GameMenu_return_to_title_screen"]
 

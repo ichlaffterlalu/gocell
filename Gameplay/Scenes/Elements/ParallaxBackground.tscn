@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Gameplay/Assets/bg-artery/bg.png" type="Texture" id=1]
+[ext_resource path="res://Gameplay/Assets/bg-artery/bg-prlx-3.png" type="Texture" id=2]
+[ext_resource path="res://Gameplay/Assets/bg-artery/bg-prlx-2.png" type="Texture" id=3]
+[ext_resource path="res://Gameplay/Assets/bg-artery/bg-prlx-1.png" type="Texture" id=4]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+layer = -1
+offset = Vector2( 0, 200 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 200 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = false
+_sections_unfolded = [ "Scroll" ]
+
+[node name="Back 4" type="ParallaxLayer" parent="." index="0"]
+
+motion_scale = Vector2( 0, 0 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 640, 360 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Back 4" index="0"]
+
+position = Vector2( 0, 1.52588e-005 )
+scale = Vector2( 1.73329, 1 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -200 )
+_sections_unfolded = [ "Animation", "Offset", "Transform", "Z Index" ]
+
+[node name="Back 3" type="ParallaxLayer" parent="." index="1"]
+
+motion_scale = Vector2( 0.4, 1 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 1230, 400 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Back 3" index="0"]
+
+position = Vector2( 44.4144, 0 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -200 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Back 2" type="ParallaxLayer" parent="." index="2"]
+
+position = Vector2( 0, -67.525 )
+motion_scale = Vector2( 0.5, 1 )
+motion_offset = Vector2( 0, -100 )
+motion_mirroring = Vector2( 1110, 400 )
+_sections_unfolded = [ "Motion", "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Back 2" index="0"]
+
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -200 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="Wall Front" type="ParallaxLayer" parent="." index="3"]
+
+motion_scale = Vector2( 0.8, 1 )
+motion_offset = Vector2( -676, 100 )
+motion_mirroring = Vector2( 1332, 310 )
+_sections_unfolded = [ "Material", "Motion", "Transform", "Visibility", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Wall Front" index="0"]
+
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( -676, -200 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
+
+[node name="Wall Front2" type="ParallaxLayer" parent="." index="4"]
+
+visible = false
+position = Vector2( 0, -310 )
+motion_scale = Vector2( 2, 2 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1332, 310 )
+_sections_unfolded = [ "Material", "Motion", "Transform", "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="Wall Front2" index="0"]
+
+visible = false
+texture = ExtResource( 4 )
+centered = false
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
+
+

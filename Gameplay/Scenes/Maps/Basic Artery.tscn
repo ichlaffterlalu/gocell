@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/World.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Assets/EnvTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Gameplay/Scenes/Elements/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node"]
 
@@ -38,8 +39,8 @@ _sections_unfolded = [ "Collision", "Occluder", "Transform", "Visibility" ]
 [node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 position = Vector2( 198, 597 )
-scale = Vector2( 0.2553, 0.2553 )
-_sections_unfolded = [ "Transform", "collision" ]
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 id = 1
 finish_line = Vector2( 5376, 430 )
 finish_x_after = true
@@ -47,7 +48,7 @@ finish_x_after = true
 [node name="Player2" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 198, 661 )
-scale = Vector2( 0.277197, 0.277197 )
+scale = Vector2( 1, 1 )
 _sections_unfolded = [ "Transform", "Visibility", "collision" ]
 id = 2
 finish_line = Vector2( 5376, 430 )
@@ -71,6 +72,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
+
+[node name="ParallaxBackground" parent="." index="5" instance=ExtResource( 4 )]
 
 [connection signal="first_move" from="Player" to="." method="_on_Player_first_move"]
 

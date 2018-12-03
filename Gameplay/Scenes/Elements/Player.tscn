@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/Player.gd" type="Script" id=1]
-[ext_resource path="res://Gameplay/Assets/icon.png" type="Texture" id=2]
-[ext_resource path="res://Main/Assets/Fonts/16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Gameplay/Assets/red cell.png" type="Texture" id=2]
+[ext_resource path="res://Main/Assets/Fonts/3x6.tres" type="DynamicFont" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+radius = 11.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( -3510, 300.292 )
 scale = Vector2( 0.794921, 0.794921 )
@@ -29,13 +29,12 @@ finish_y_below = null
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -5.72205e-006, -1.04904e-005 )
-scale = Vector2( 3.15951, 3.15951 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="." index="2"]
 
@@ -43,10 +42,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -32.0
-margin_top = -58.0
-margin_right = 31.0
-margin_bottom = -32.0
+margin_left = -31.0
+margin_top = -38.0
+margin_right = 32.0
+margin_bottom = -12.0
 grow_vertical = 0
 rect_rotation = 0.159763
 rect_pivot_offset = Vector2( 0, 0 )
@@ -57,9 +56,11 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 3 )
 text = "Player"
+align = 1
 valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 

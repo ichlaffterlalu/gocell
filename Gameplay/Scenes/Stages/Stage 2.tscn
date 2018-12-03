@@ -100,6 +100,8 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 3 )
 
+[node name="World" parent="Viewports/ViewportContainer1/Viewport1" index="1" instance=ExtResource( 4 )]
+
 [node name="ViewportContainer2" type="ViewportContainer" parent="Viewports" index="1"]
 
 anchor_left = 0.0
@@ -179,6 +181,7 @@ script = ExtResource( 3 )
 
 [node name="Fade" parent="." index="2" instance=ExtResource( 6 )]
 
+visible = false
 margin_right = 0.0
 margin_bottom = 0.0
 
@@ -199,6 +202,8 @@ margin_bottom = 0.0
 [connection signal="finished_waiting" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
 
 [connection signal="start_game" from="Viewports/ViewportContainer1/FinishedLabel" to="." method="_on_FinishedLabel_start_game"]
+
+[connection signal="player_finished" from="Viewports/ViewportContainer1/Viewport1/World" to="." method="_on_World_player_finished"]
 
 [connection signal="finished_waiting" from="Viewports/ViewportContainer2/FinishedLabel" to="." method="_on_FinishedLabel_finished_waiting"]
 

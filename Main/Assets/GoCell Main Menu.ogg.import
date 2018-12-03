@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GoCell Main Menu.ogg-e3e8a2bb1efc77b9712e81ba90682bc1.oggstr"
+
+[deps]
+
+source_file="res://Main/Assets/GoCell Main Menu.ogg"
+dest_files=[ "res://.import/GoCell Main Menu.ogg-e3e8a2bb1efc77b9712e81ba90682bc1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

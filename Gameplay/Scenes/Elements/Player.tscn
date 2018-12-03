@@ -1,15 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/Player.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://Main/Assets/Fonts/16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Gameplay/Scenes/Elements/Timer.gd" type="Script" id=4]
+[ext_resource path="res://Main/Assets/Fonts/Raw/impact.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Gameplay/Scenes/Elements/Stamlabel.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Player" type="KinematicBody2D"]
+[sub_resource type="DynamicFont" id=2]
+
+size = 64
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( -3510, 300.292 )
 scale = Vector2( 0.794921, 0.794921 )
@@ -18,9 +29,6 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 id = 0
 finish_line = Vector2( 0, 0 )
 finish_x_after = false
@@ -61,5 +69,41 @@ valign = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+script = ExtResource( 4 )
+
+[node name="Stamlabel" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -22.0
+margin_top = -131.0
+margin_right = 28.0
+margin_bottom = -42.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 6 )
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "custom_fonts" ]
+
+[connection signal="recovery" from="." to="Timer" method="_on_Player_recovery"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

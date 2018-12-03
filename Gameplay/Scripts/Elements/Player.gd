@@ -8,6 +8,7 @@ const JUMP_HEIGHT = -600/2
 
 signal first_move(start_time)
 signal player_finished(player_node)
+signal recovery()
 
 export(int) var id = 0
 export(Vector2) var finish_line
@@ -26,6 +27,11 @@ var boost = true
 var stamina = 5
 var accel_right = 0
 var accel_left = 0
+
+var currentTime
+var recoveryTime
+var recov = false
+var boostclick = 0
 
 var timeDict = OS.get_ticks_msec()
 
@@ -53,37 +59,39 @@ func _check_started():
 	started = true
 
 func _physics_process(delta):
-	if (player_active):
-		var currentTime = OS.get_ticks_msec()
+	if (!finish):
 		
-		if (currentTime / 100 % 50 == timeDict / 100 % 50):
-			stamina = 5
-			current_max_speed = SPEED
+		if (stamina < 5 and boost and not recov):
+			recov = true
+			emit_signal("recovery")
 		
 		motion.y += GRAVITY
 		if Input.is_action_just_pressed("ui_right_%s" % id):
 			_check_started()
-			if stamina != 0:
-				stamina -= 1
-				print (stamina)
-				if motion.x > 0:
+			if motion.x > 0:
+				if stamina != 0:
+					stamina -= 1
+					print (stamina)
 					boost = true
-					motion.x += 1200/2
-					current_max_speed += 100/2
-				if boost:
-					print ("RIGHT BOOST. Current maximum speed = ",current_max_speed)
-					
+					boostclick += 1
+					#recoveryTime = OS.get_ticks_msec()
+					motion.x = lerp(motion.x +2000/2, SPEED, 0.0001)
+					current_max_speed = SPEED + 50 * (boostclick)
+			if boost:
+				print ("RIGHT BOOST. Current maximum speed = ",current_max_speed)
+				
+				
 		elif Input.is_action_just_pressed("ui_left_%s" % id):
 			_check_started()
-			if stamina != 0:
-				stamina -= 1
-				print (stamina)
-				if motion.x < 0:
+			if motion.x < 0:
+				if stamina != 0:
+					stamina -= 1
+					print (stamina)
 					boost = true
 					motion.x -= 1200/2
 					current_max_speed += 100/2
-				if boost:
-					print ("LEFT BOOST. Current maximum speed = ",current_max_speed)
+					if boost:
+						print ("LEFT BOOST. Current maximum speed = ",current_max_speed)
 					
 		elif Input.is_action_pressed("ui_right_%s" % id):
 			_check_started()
@@ -109,7 +117,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				_check_started()
 				motion.y = JUMP_HEIGHT
-		
+
 		if (finish_line.x > 0 && ((finish_x_after && position.x > finish_line.x) || (!finish_x_after && position.x < finish_line.x))):
 			if (finish_line.y > 0 && ((finish_y_below && position.y > finish_line.y) || (!finish_y_below && position.y < finish_line.y))):
 				finish = true
@@ -118,8 +126,19 @@ func _physics_process(delta):
 				
 				print ("Player ", id , " finish");
 				emit_signal("player_finished", self)
+
 		
 		motion = move_and_slide(motion,UP)
 		pass
 	
 	
+
+func _on_Timer_timeout():
+	print("hello?")
+	stamina += 1
+	current_max_speed = SPEED
+	print(stamina)
+	boostclick = 0
+	if (stamina == 5):
+		recov = false
+		$Timer.stop()

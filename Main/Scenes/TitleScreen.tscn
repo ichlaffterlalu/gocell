@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Main/Scripts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/72.tres" type="DynamicFont" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Main/Assets/GoCell Main Menu.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Main/Scenes/AudioStreamPlayer2D.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -551,6 +553,18 @@ margin_bottom = 288.0
 margin_right = 640.0
 margin_bottom = 360.0
 _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+script = ExtResource( 14 )
 
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Settings" to="." method="_on_Settings_pressed"]
 

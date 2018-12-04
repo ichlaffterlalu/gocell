@@ -13,7 +13,8 @@ export(int) var id = 0
 export(Vector2) var finish_line
 export(bool) var finish_x_after # if yes, use position.x > finish_line.x in finish condition
 export(bool) var finish_y_below # if no, use position.y < finish_line.y in finish condition
-
+export(String) var player_name
+export(Texture) var player_texture
 
 var current_max_speed = SPEED
 var motion = Vector2()
@@ -37,7 +38,11 @@ func set_player_active(val):
 		player_active = val
 
 func _ready():
-	_init_change_color_modulation(id)
+	if player_texture != null:
+		$Sprite.set_texture(player_texture)
+	else:
+		 _init_change_color_modulation(id)
+	$Label.text = player_name
 
 func _init_change_color_modulation(char_id):
 	if char_id == 1:

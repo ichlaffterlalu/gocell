@@ -25,6 +25,8 @@ id = 0
 finish_line = Vector2( 0, 0 )
 finish_x_after = false
 finish_y_below = null
+player_name = null
+player_texture = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

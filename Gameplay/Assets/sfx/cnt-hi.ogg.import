@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cnt-hi.ogg-09d6958a01847b9011dec5c9074ec835.oggstr"
+
+[deps]
+
+source_file="res://Gameplay/Assets/sfx/cnt-hi.ogg"
+dest_files=[ "res://.import/cnt-hi.ogg-09d6958a01847b9011dec5c9074ec835.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

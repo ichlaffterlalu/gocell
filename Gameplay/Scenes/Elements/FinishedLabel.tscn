@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/FinishedLabel.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/72.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Assets/Fonts/32.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Gameplay/Assets/sfx/cnt-hi.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Gameplay/Assets/sfx/cnt-low.ogg" type="AudioStream" id=6]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 
 resource_name = "countdown_lose"
 length = 10.0
@@ -67,8 +69,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ "3", "2", "1", "GO!" ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cnt Hi:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Cnt Lo:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true ]
+}
 
-[node name="FinishedLabel" type="MarginContainer" index="0"]
+[node name="FinishedLabel" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -159,8 +185,26 @@ _sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
 [node name="FadeAnimation" parent="." index="1" instance=ExtResource( 4 )]
 
-anims/countdown_lose = SubResource( 3 )
+anims/countdown_lose = SubResource( 1 )
 anims/countdown_start = SubResource( 2 )
+
+[node name="Cnt Hi" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 5 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Cnt Lo" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 6 )
+volume_db = -20.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="animation_finished" from="FadeAnimation" to="." method="_on_FadeAnimation_animation_finished"]
 

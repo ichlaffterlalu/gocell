@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dash.ogg-4ad708153a7ced0414a983abe2ce8746.oggstr"
+
+[deps]
+
+source_file="res://Gameplay/Assets/sfx/dash.ogg"
+dest_files=[ "res://.import/dash.ogg-4ad708153a7ced0414a983abe2ce8746.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

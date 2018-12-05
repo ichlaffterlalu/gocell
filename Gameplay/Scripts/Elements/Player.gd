@@ -34,6 +34,8 @@ var recoveryTime
 var recov = false
 var boostclick = 0
 
+onready var dash_sound = $Dash
+
 var timeDict = OS.get_ticks_msec()
 
 func set_finish_time(time):
@@ -75,6 +77,8 @@ func _physics_process(delta):
 			_check_started()
 			if motion.x > 0:
 				if stamina != 0:
+					print("TEST")
+					dash_sound.play(0)
 					stamina -= 1
 					print (stamina)
 					boost = true

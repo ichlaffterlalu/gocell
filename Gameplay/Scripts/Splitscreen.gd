@@ -72,4 +72,5 @@ func _on_FinishedLabel_finished_waiting():
 	t.queue_free()
 
 func _on_FinishedLabel_start_game():
+	world.get_node("Music").play()
 	emit_signal("game_change_status", true)

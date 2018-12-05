@@ -89,7 +89,7 @@ volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [connection signal="first_move" from="Player" to="." method="_on_Player_first_move"]
 

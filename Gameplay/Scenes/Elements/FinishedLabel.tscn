@@ -195,7 +195,7 @@ volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
 [node name="Cnt Lo" type="AudioStreamPlayer" parent="." index="3"]
 
@@ -204,7 +204,7 @@ volume_db = -20.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
 [connection signal="animation_finished" from="FadeAnimation" to="." method="_on_FadeAnimation_animation_finished"]
 

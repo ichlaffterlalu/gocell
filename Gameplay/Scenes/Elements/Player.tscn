@@ -12,7 +12,7 @@
 custom_solver_bias = 0.0
 radius = 11.0
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( -3510, 300.292 )
 scale = Vector2( 0.794921, 0.794921 )
@@ -104,7 +104,7 @@ volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
 [connection signal="recovery" from="." to="Timer" method="_on_Player_recovery"]
 

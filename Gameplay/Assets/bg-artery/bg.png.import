@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/whitecell.png-baaa4f84542c7aff54033305e4d3f1b7.stex"
+path="res://.import/bg.png-c655e025a0f9ba90d2eae80f8ba839df.stex"
 
 [deps]
 
-source_file="res://Gameplay/Assets/whitecell.png"
-dest_files=[ "res://.import/whitecell.png-baaa4f84542c7aff54033305e4d3f1b7.stex" ]
+source_file="res://Gameplay/Assets/bg-artery/bg.png"
+dest_files=[ "res://.import/bg.png-c655e025a0f9ba90d2eae80f8ba839df.stex" ]
 
 [params]
 

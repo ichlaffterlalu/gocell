@@ -10,9 +10,9 @@
 [sub_resource type="Animation" id=1]
 
 resource_name = "countdown_lose"
-length = 10.0
+length = 11.0
 loop = false
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox/WinLose:text")
 tracks/0/interp = 1
@@ -49,6 +49,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Cnt Hi:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 10, 10.2, 10.25, 10.45, 10.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, true, false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cnt Lo:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 2, 3, 4, 5, 6, 7, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, true, true, true, true, true, true, true ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -88,10 +112,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, true, true ]
+"values": [ true, true, true, false ]
 }
 
 [node name="FinishedLabel" type="MarginContainer" index="0"]
@@ -180,7 +204,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 3 )
 custom_constants/shadow_offset_x = 3
 custom_constants/shadow_offset_y = 3
-text = "Go to the finish lne as soon as possible!"
+text = "Go to the finish line as soon as possible!"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -195,20 +219,20 @@ anims/countdown_start = SubResource( 2 )
 [node name="Cnt Hi" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 5 )
-volume_db = -20.0
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
 [node name="Cnt Lo" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 6 )
-volume_db = -20.0
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "SFX"
 
 [connection signal="animation_finished" from="FadeAnimation" to="." method="_on_FadeAnimation_animation_finished"]
 

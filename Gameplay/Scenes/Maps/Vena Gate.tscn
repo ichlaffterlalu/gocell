@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/World.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Assets/tilegocell.png" type="Texture" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Gameplay/Scenes/Elements/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Gameplay/Assets/red cell.png" type="Texture" id=5]
 [ext_resource path="res://Gameplay/Assets/white cell.png" type="Texture" id=6]
-[ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Gameplay/Assets/music/GoCell Race theme.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Gameplay/Assets/sfx/jump-2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Gameplay/Assets/music/GoCell Race theme.ogg" type="AudioStream" id=9]
 
 [node name="World" type="Node"]
 
@@ -89,6 +90,7 @@ finish_x_after = true
 finish_y_below = true
 player_name = "Player 2"
 player_texture = ExtResource( 6 )
+jump_sound = ExtResource( 7 )
 
 [node name="Tilefloors" type="Node" parent="." index="6"]
 
@@ -109,16 +111,16 @@ size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
 
-[node name="ParallaxBackground" parent="." index="8" instance=ExtResource( 7 )]
+[node name="ParallaxBackground" parent="." index="8" instance=ExtResource( 8 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="." index="9"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [connection signal="first_move" from="Player" to="." method="_on_Player_first_move"]
 

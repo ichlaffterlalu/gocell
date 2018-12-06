@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main/Scripts/Settings.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/20.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Scripts/Animations/Fade.gd" type="Script" id=3]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Gameplay/Assets/sfx/dash.ogg" type="AudioStream" id=5]
 
-[node name="Settings" type="MarginContainer"]
+[node name="Settings" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -183,7 +184,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Sounds" type="Tabs" parent="TabContainer" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -330,9 +330,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 140.0
-margin_top = 27.0
+margin_top = 37.0
 margin_right = 304.0
-margin_bottom = 125.0
+margin_bottom = 115.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -349,9 +349,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 3.0
 margin_right = 164.0
-margin_bottom = 19.0
+margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -363,7 +362,7 @@ min_value = 0.0
 max_value = 100.0
 step = 1.0
 page = 0.0
-value = 0.0
+value = 100.0
 exp_edit = false
 rounded = false
 editable = true
@@ -377,9 +376,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 40.0
+margin_top = 31.0
 margin_right = 164.0
-margin_bottom = 56.0
+margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -391,7 +390,7 @@ min_value = 0.0
 max_value = 100.0
 step = 1.0
 page = 0.0
-value = 0.0
+value = 100.0
 exp_edit = false
 rounded = false
 editable = true
@@ -405,9 +404,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 78.0
+margin_top = 62.0
 margin_right = 164.0
-margin_bottom = 94.0
+margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -429,7 +428,22 @@ focus_mode = 2
 
 [node name="FadeAnimation" parent="TabContainer" index="2" instance=ExtResource( 4 )]
 
+[node name="AudioSettingSFX" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = ExtResource( 5 )
+volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "SFX"
+
 [connection signal="fade_out_finished" from="TabContainer" to="." method="_on_TabContainer_fade_out_finished"]
+
+[connection signal="value_changed" from="TabContainer/Sounds/MarginContainer/Container/Sliders/Master" to="." method="_on_Master_sound_value_changed"]
+
+[connection signal="value_changed" from="TabContainer/Sounds/MarginContainer/Container/Sliders/SFX" to="." method="_on_SFX_value_changed"]
+
+[connection signal="value_changed" from="TabContainer/Sounds/MarginContainer/Container/Sliders/Music" to="." method="_on_Music_value_changed"]
 
 [connection signal="animation_finished" from="TabContainer/FadeAnimation" to="TabContainer" method="_on_FadeAnimation_animation_finished"]
 

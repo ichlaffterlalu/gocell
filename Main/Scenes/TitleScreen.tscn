@@ -550,7 +550,7 @@ volume_db = -10.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Settings" to="." method="_on_Settings_pressed"]
 

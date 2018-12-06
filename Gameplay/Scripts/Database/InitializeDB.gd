@@ -44,7 +44,7 @@ func _ready():
 	query += "timestamp datetime NOT NULL,";
 	query += "duration double NOT NULL,";
 	query += "multiplayer boolean NOT NULL,";
-	query += "CONSTRAINT FK_User FOREIGN KEY (user_name) REFERENCES Users(name)";
+	query += "CONSTRAINT FK_User FOREIGN KEY (user_name) REFERENCES Users(name),";
 	query += "PRIMARY KEY (user_name, timestamp)";
 	query += ");";
 	result = db.query(query);

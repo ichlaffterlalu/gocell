@@ -16,27 +16,30 @@ func _ready():
 	var result = null;
 	
 	# Create characters table
-	query = "CREATE TABLE IF NOT EXISTS Characters (";
+	query = "CREATE TABLE Characters (";
 	query += "id int NOT NULL,";
 	query += "name char(200) NOT NULL,";
 	query += "texture_address text NOT NULL,";
+	query += "stamina int NOT NULL,";
+	query += "top_speed real NOT NULL,";
+	query += "acceleration real NOT NULL,";
 	query += "PRIMARY KEY (id)";
 	query += ");";
 	result = db.query(query);
-	print(result);
+	if (result):
+		result = _init_characters(db);
 	
 	# Create users table
-	query = "CREATE TABLE IF NOT EXISTS Users (";
+	query = "CREATE TABLE Users (";
 	query += "name char(50) NOT NULL,";
 	query += "character_id int NOT NULL,";
 	query += "PRIMARY KEY (name),";
 	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id)";
 	query += ");";
 	result = db.query(query);
-	print(result);
 	
 	# Create records table
-	query = "CREATE TABLE IF NOT EXISTS Records (";
+	query = "CREATE TABLE Records (";
 	query += "user_name char(50) NOT NULL,";
 	query += "timestamp datetime NOT NULL,";
 	query += "duration double NOT NULL,";
@@ -45,7 +48,11 @@ func _ready():
 	query += "PRIMARY KEY (user_name, timestamp)";
 	query += ");";
 	result = db.query(query);
-	print(result);
 	
 	# Close database
 	db.close();
+
+func _init_characters(db):
+	var query = "INSERT INTO Characters(id, name, texture_address, stamina, top_speed, acceleration) VALUES ";
+	query += "(1, 'Red Blood Cell', 'res://Gameplay/Assets/red cell.png', 5, 200, 12.5);";
+	return db.query(query);

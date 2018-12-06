@@ -24,7 +24,6 @@ func _on_Player_finished(player_node):
 	player_node.set_finish_time(player_node.finish_time - game_start_time)
 	emit_signal("player_finished", player_node)
 
-
 func _on_Player_first_move(start_time):
 	if game_start_time == 0:
 		game_start_time = start_time

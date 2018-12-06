@@ -23,15 +23,17 @@ func _ready():
 	query += "PRIMARY KEY (id)";
 	query += ");";
 	result = db.query(query);
+	print(result);
 	
 	# Create users table
 	query = "CREATE TABLE IF NOT EXISTS Users (";
 	query += "name char(50) NOT NULL,";
 	query += "character_id int NOT NULL,";
-	query += "PRIMARY KEY (user_name),";
+	query += "PRIMARY KEY (name),";
 	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id)";
 	query += ");";
 	result = db.query(query);
+	print(result);
 	
 	# Create records table
 	query = "CREATE TABLE IF NOT EXISTS Records (";
@@ -39,10 +41,11 @@ func _ready():
 	query += "timestamp datetime NOT NULL,";
 	query += "duration double NOT NULL,";
 	query += "multiplayer boolean NOT NULL,";
-	query += "USER FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id)";
+	query += "CONSTRAINT FK_User FOREIGN KEY (user_name) REFERENCES Users(name)";
 	query += "PRIMARY KEY (user_name, timestamp)";
 	query += ");";
 	result = db.query(query);
+	print(result);
 	
 	# Close database
 	db.close();

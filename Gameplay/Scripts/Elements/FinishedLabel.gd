@@ -55,3 +55,17 @@ func _on_FadeAnimation_animation_finished(anim_name):
 		emit_signal("finished_waiting")
 
 
+func _on_Player_time_trial_lose(player_node):
+	$VBox/WinLose.text = "Player " + str(player_node.id) + " Lose!"
+	$VBox/Statistics.text = "Player " + str(player_node.id) + " can't beat it's own record right now :("
+	$FadeAnimation.play("fade_in")
+	self.show()
+	emit_signal("finished_waiting")
+
+
+func _on_Player_time_trial_win(player_node):
+	$VBox/WinLose.text = "Player " + str(player_node.id) + " Win!"
+	$VBox/Statistics.text = "Player " + str(player_node.id) + " finished the time trial with a glorious success!"
+	$FadeAnimation.play("fade_in")
+	self.show()
+	emit_signal("finished_waiting")

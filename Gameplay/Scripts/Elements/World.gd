@@ -17,6 +17,8 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
+func _enable_time_trial_mode():
+	$Player2.hide()
 
 func _on_Player_finished(player_node):
 	player_node.set_finish_time(player_node.finish_time - game_start_time)

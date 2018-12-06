@@ -29,8 +29,8 @@ func _on_Player_lose(player_node):
 		self.show()
 	else:
 		$FadeAnimation.stop()
-	$VBox/WinLose.text = "Player " + str(player_node.id) + " Lose!"
-	$VBox/Statistics.text = "Player " + str(player_node.id) + " finished 2nd\nwith total time of " + str(player_node.finish_time/1000) + "s!"
+	$VBox/WinLose.text = player_node.player_name + " Lose!"
+	$VBox/Statistics.text = player_node.player_name + " finished 2nd\nwith total time of " + str(player_node.finish_time/1000) + "s!"
 	emit_signal("finished_waiting")
 	
 func _on_Player_waiting():
@@ -38,8 +38,8 @@ func _on_Player_waiting():
 	self.show()
 
 func _on_Player_win(player_node):
-	$VBox/WinLose.text = "Player " + str(player_node.id) + " Win!"
-	$VBox/Statistics.text = "Player " + str(player_node.id) + " finished 1st\nwith total time of " + str(player_node.finish_time/1000) + "s!"
+	$VBox/WinLose.text = player_node.player_name + " Win!"
+	$VBox/Statistics.text = player_node.player_name + " finished 1st\nwith total time of " + str(player_node.finish_time/1000) + "s!"
 	$FadeAnimation.play("fade_in")
 	self.show()
 	
@@ -56,16 +56,16 @@ func _on_FadeAnimation_animation_finished(anim_name):
 
 
 func _on_Player_time_trial_lose(player_node):
-	$VBox/WinLose.text = "Player " + str(player_node.id) + " Lose!"
-	$VBox/Statistics.text = "Player " + str(player_node.id) + " can't beat it's own record right now :("
+	$VBox/WinLose.text = player_node.player_name + " Lose!"
+	$VBox/Statistics.text = player_node.player_name + " can't beat it's own record right now :("
 	$FadeAnimation.play("fade_in")
 	self.show()
 	emit_signal("finished_waiting")
 
 
 func _on_Player_time_trial_win(player_node):
-	$VBox/WinLose.text = "Player " + str(player_node.id) + " Win!"
-	$VBox/Statistics.text = "Player " + str(player_node.id) + " finished the time trial with a glorious success!"
+	$VBox/WinLose.text = player_node.player_name + " Win!"
+	$VBox/Statistics.text = player_node.player_name + " finished the time trial with a glorious success!"
 	$FadeAnimation.play("fade_in")
 	self.show()
 	emit_signal("finished_waiting")

@@ -50,6 +50,11 @@ func set_player_active(val):
 	if (!finish):
 		player_active = val
 
+func set_player_name(val):
+	if (!player_active && !finish):
+		player_name = val
+		$Label.text = player_name
+
 func _ready():
 	if player_texture != null:
 		$Sprite.set_texture(player_texture)

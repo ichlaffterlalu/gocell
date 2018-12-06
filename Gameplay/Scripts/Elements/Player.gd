@@ -16,6 +16,7 @@ export(bool) var finish_x_after # if yes, use position.x > finish_line.x in fini
 export(bool) var finish_y_below # if no, use position.y < finish_line.y in finish condition
 export(String) var player_name
 export(Texture) var player_texture
+export(AudioStreamOGGVorbis) var jump_sound
 
 var current_max_speed = SPEED
 var motion = Vector2()
@@ -36,6 +37,10 @@ var boostclick = 0
 
 onready var dash_sound = $Dash
 
+# For detecting sudden speed change
+var pos_before_1 = Vector2()
+var pos_before_2 = Vector2()
+
 var timeDict = OS.get_ticks_msec()
 
 func set_finish_time(time):
@@ -50,6 +55,8 @@ func _ready():
 		$Sprite.set_texture(player_texture)
 	else:
 		 _init_change_color_modulation(id)
+	if jump_sound != null:
+		$Jump.stream = jump_sound
 	$Label.text = player_name
 
 func _init_change_color_modulation(char_id):
@@ -64,6 +71,9 @@ func _check_started():
 	if started == false:
 		emit_signal("first_move", OS.get_ticks_msec())
 	started = true
+
+func _squared_dist_two_coord(coord1, coord2):
+	return pow(coord1[0] - coord2[0],2) + pow(coord1[1] - coord2[1], 2)
 
 func _physics_process(delta):
 	if (player_active):
@@ -125,6 +135,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				_check_started()
+				$Jump.play()
 				motion.y = JUMP_HEIGHT
 
 		if (finish_line.x > 0 && ((finish_x_after && position.x > finish_line.x) || (!finish_x_after && position.x < finish_line.x))):
@@ -135,10 +146,13 @@ func _physics_process(delta):
 				
 				print ("Player ", id , " finish");
 				emit_signal("player_finished", self)
-
-		
-		motion = move_and_slide(motion,UP)
-		pass
+		motion = move_and_slide(motion, UP)
+		var diff = _squared_dist_two_coord(pos_before_2, pos_before_1) - _squared_dist_two_coord(pos_before_1, Vector2(position.x, position.y))
+		if (diff > 10):
+			#print(log(diff))
+			$Hit.play()
+		pos_before_2 = pos_before_1
+		pos_before_1 = Vector2(position.x, position.y)
 	
 	
 

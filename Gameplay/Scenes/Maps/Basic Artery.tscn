@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/World.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Assets/EnvTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Gameplay/Scenes/Elements/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gameplay/Assets/red cell.png" type="Texture" id=4]
 [ext_resource path="res://Gameplay/Assets/white cell.png" type="Texture" id=5]
-[ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Gameplay/Assets/music/field of hopes and dreams.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Gameplay/Assets/sfx/jump-2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Gameplay/Assets/music/field of hopes and dreams.ogg" type="AudioStream" id=8]
 
 [node name="World" type="Node"]
 
@@ -60,6 +61,7 @@ finish_line = Vector2( 5376, 430 )
 finish_x_after = true
 player_name = "Player 2"
 player_texture = ExtResource( 5 )
+jump_sound = ExtResource( 6 )
 
 [node name="Tilefloors" type="Node" parent="." index="3"]
 
@@ -80,11 +82,11 @@ size_flags_vertical = 1
 stretch = false
 stretch_shrink = 1
 
-[node name="ParallaxBackground" parent="." index="5" instance=ExtResource( 6 )]
+[node name="ParallaxBackground" parent="." index="5" instance=ExtResource( 7 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false

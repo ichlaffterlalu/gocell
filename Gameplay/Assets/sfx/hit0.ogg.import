@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hit0.ogg-c3964a9849970f361fdb3e912a3474b6.oggstr"
+
+[deps]
+
+source_file="res://Gameplay/Assets/sfx/hit0.ogg"
+dest_files=[ "res://.import/hit0.ogg-c3964a9849970f361fdb3e912a3474b6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

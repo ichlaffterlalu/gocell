@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Credits/Scripts/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/40.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Main/Assets/Fonts/Raw/impact.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Main/Assets/Fonts/32.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=4]
-
 
 [sub_resource type="Animation" id=1]
 
@@ -133,14 +132,6 @@ tracks/9/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=2]
-
-size = 28
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
-
 [node name="Credits" type="Control"]
 
 anchor_left = 0.0
@@ -174,8 +165,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 984.0
-margin_bottom = 560.0
+margin_right = 600.0
+margin_bottom = 320.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -201,7 +192,7 @@ custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
 custom_constants/margin_bottom = 32
-_sections_unfolded = [ "custom_constants" ]
+_sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="MadeBy" type="VBoxContainer" parent="Background/Container" index="0"]
 
@@ -210,10 +201,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 191.0
-margin_top = 138.0
-margin_right = 833.0
-margin_bottom = 461.0
+margin_left = 33.0
+margin_top = 65.0
+margin_right = 607.0
+margin_bottom = 295.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -230,8 +221,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 642.0
-margin_bottom = 50.0
+margin_right = 574.0
+margin_bottom = 32.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -254,16 +245,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 70.0
-margin_right = 642.0
-margin_bottom = 120.0
+margin_top = 52.0
+margin_right = 574.0
+margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Gold Cell"
 align = 1
 valign = 1
@@ -278,9 +269,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 140.0
-margin_right = 642.0
-margin_bottom = 253.0
+margin_top = 98.0
+margin_right = 574.0
+margin_bottom = 184.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -297,8 +288,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 361.0
-margin_bottom = 113.0
+margin_right = 320.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -315,15 +306,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 361.0
-margin_bottom = 35.0
+margin_right = 320.0
+margin_bottom = 26.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Agas Yanpratama"
 valign = 1
 percent_visible = 1.0
@@ -338,16 +329,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 39.0
-margin_right = 361.0
-margin_bottom = 74.0
+margin_top = 30.0
+margin_right = 320.0
+margin_bottom = 56.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Fardhan Dhiadribratha Sudjono"
 valign = 1
 percent_visible = 1.0
@@ -362,16 +353,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 78.0
-margin_right = 361.0
-margin_bottom = 113.0
+margin_top = 60.0
+margin_right = 320.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Ichlasul Affan"
 valign = 1
 percent_visible = 1.0
@@ -385,9 +376,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 401.0
-margin_right = 642.0
-margin_bottom = 113.0
+margin_left = 360.0
+margin_right = 574.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -403,15 +394,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 241.0
-margin_bottom = 35.0
+margin_top = 8.0
+margin_right = 214.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Rachmat Ridwan"
 align = 2
 valign = 1
@@ -427,16 +419,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 39.0
-margin_right = 241.0
-margin_bottom = 74.0
+margin_top = 30.0
+margin_right = 214.0
+margin_bottom = 56.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Ryan Naufal Pioscha"
 align = 2
 valign = 1
@@ -452,16 +444,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 78.0
-margin_right = 241.0
-margin_bottom = 113.0
+margin_top = 60.0
+margin_right = 214.0
+margin_bottom = 86.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Samuel Tupa Febrian"
 align = 2
 valign = 1
@@ -477,16 +469,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 273.0
-margin_right = 642.0
-margin_bottom = 323.0
+margin_top = 204.0
+margin_right = 574.0
+margin_bottom = 230.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Game Development Course, Fasilkom UI"
 align = 1
 valign = 1
@@ -496,6 +488,10 @@ max_lines_visible = -1
 _sections_unfolded = [ "Visibility", "custom_fonts" ]
 
 [node name="Fade" parent="." index="2" instance=ExtResource( 4 )]
+
+margin_right = 600.0
+margin_bottom = 320.0
+_sections_unfolded = [ "Anchor", "Hint", "Margin", "Pause", "Rect" ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

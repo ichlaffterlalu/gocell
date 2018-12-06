@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Main/Scripts/TitleScreen.gd" type="Script" id=1]
-[ext_resource path="res://Main/Assets/Fonts/72.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Main/Assets/Fonts/40.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Main/Assets/Fonts/120.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Main/Assets/Fonts/60.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Main/Scripts/Menus/TitleScreenButton.gd" type="Script" id=4]
 [ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=5]
-[ext_resource path="res://Main/Assets/Fonts/Raw/impact.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Main/Assets/icon.png" type="Texture" id=7]
 [ext_resource path="res://Main/Scripts/Animations/GodotLogo.gd" type="Script" id=8]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=9]
@@ -13,14 +13,6 @@
 [ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Main/Assets/GoCell Main Menu.ogg" type="AudioStream" id=13]
-
-[sub_resource type="DynamicFont" id=1]
-
-size = 16
-use_mipmaps = true
-use_filter = false
-font_data = ExtResource( 6 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [sub_resource type="Animation" id=2]
 
@@ -87,7 +79,6 @@ _sections_unfolded = [ "Material", "Rect", "Theme", "Visibility" ]
 
 [node name="Container" type="MarginContainer" parent="MainPage" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -102,23 +93,22 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/margin_right = 40
-custom_constants/margin_top = 30
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 30
-_sections_unfolded = [ "Rect", "custom_constants" ]
+custom_constants/margin_right = 30
+custom_constants/margin_top = 20
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 20
+_sections_unfolded = [ "Rect", "Visibility", "custom_constants" ]
 
 [node name="HBox" type="HBoxContainer" parent="MainPage/Container" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 40.0
-margin_top = 30.0
-margin_right = 1028.0
-margin_bottom = 565.0
+margin_left = 30.0
+margin_top = 20.0
+margin_right = 1038.0
+margin_bottom = 590.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -135,8 +125,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 225.0
-margin_bottom = 535.0
+margin_right = 271.0
+margin_bottom = 570.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -153,8 +143,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 225.0
-margin_bottom = 94.0
+margin_right = 271.0
+margin_bottom = 95.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -171,10 +161,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 5.0
-margin_top = 2.0
-margin_right = 220.0
-margin_bottom = 91.0
+margin_right = 271.0
+margin_bottom = 95.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -194,9 +182,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 134.0
-margin_right = 225.0
-margin_bottom = 449.0
+margin_top = 135.0
+margin_right = 271.0
+margin_bottom = 454.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -213,9 +201,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 7.0
-margin_right = 225.0
-margin_bottom = 147.0
+margin_top = 9.0
+margin_right = 271.0
+margin_bottom = 149.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -232,7 +220,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 179.0
+margin_right = 221.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -260,7 +248,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 80.0
-margin_right = 161.0
+margin_right = 193.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -287,9 +275,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 167.0
-margin_right = 225.0
-margin_bottom = 307.0
+margin_top = 169.0
+margin_right = 271.0
+margin_bottom = 309.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -306,7 +294,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 225.0
+margin_right = 268.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -334,7 +322,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 80.0
-margin_right = 119.0
+margin_right = 141.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 0, 60 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -361,16 +349,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 489.0
-margin_right = 225.0
-margin_bottom = 534.0
+margin_top = 494.0
+margin_right = 271.0
+margin_bottom = 569.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 6 )
 text = "by Gold Cell - Game Development Course - Fasilkom UI - v0.0.1"
 autowrap = true
 percent_visible = 1.0
@@ -384,9 +372,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 265.0
-margin_right = 988.0
-margin_bottom = 535.0
+margin_left = 311.0
+margin_right = 1008.0
+margin_bottom = 570.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -402,8 +390,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 723.0
-margin_bottom = 50.0
+margin_right = 697.0
+margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -420,9 +408,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 354.0
-margin_right = 491.0
-margin_bottom = 50.0
+margin_left = 274.0
+margin_right = 438.0
+margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -445,9 +433,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 531.0
-margin_right = 626.0
-margin_bottom = 50.0
+margin_left = 478.0
+margin_right = 581.0
+margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -470,9 +458,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 666.0
-margin_right = 723.0
-margin_bottom = 50.0
+margin_left = 621.0
+margin_right = 697.0
+margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -495,9 +483,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 54.0
-margin_right = 723.0
-margin_bottom = 535.0
+margin_top = 52.0
+margin_right = 697.0
+margin_bottom = 570.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -513,10 +501,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 361.0
-margin_top = 240.0
-margin_right = 361.0
-margin_bottom = 240.0
+margin_left = 348.0
+margin_top = 259.0
+margin_right = 348.0
+margin_bottom = 259.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -535,19 +523,19 @@ anims/rotate = SubResource( 2 )
 
 [node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 10 )]
 
-margin_left = 181.0
-margin_top = 120.0
-margin_right = 541.0
-margin_bottom = 360.0
+margin_left = 168.0
+margin_top = 139.0
+margin_right = 528.0
+margin_bottom = 379.0
 
 [node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 11 )]
 
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 149.0
-margin_top = 192.0
-margin_right = 573.0
-margin_bottom = 288.0
+margin_left = 169.0
+margin_top = 223.0
+margin_right = 528.0
+margin_bottom = 295.0
 
 [node name="Fade" parent="." index="1" instance=ExtResource( 12 )]
 

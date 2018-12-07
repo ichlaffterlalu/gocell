@@ -70,15 +70,37 @@ func insert_to_records(player_node, multiplayer, map_name):
 	var result = db.query(query)
 	return result
 
-func get_records_best_10(user_name="", multiplayer=-1, pick_one=false):
+func get_records_best_10(user_name="", multiplayer=-1, map_name="", pick_one=false):
 	var query = "SELECT * FROM Records "
 	var filter = ["WHERE"]
 	if user_name != "":
 		filter.append("user_name = '" + user_name + "'")
 	if multiplayer > -1:
 		filter.append("multiplayer = " + str(multiplayer))
+	if map_name != "":
+		filter.append("map_name = " + str(map_name))
 	if len(filter) > 1:
-		query += " ".join(filter) + " "
+		query += " AND ".join(filter) + " "
+	query += "ORDER BY duration ASC "
+	if pick_one:
+		query += "LIMIT 1;"
+	else:
+		query += "LIMIT 10;"
+	var result = db.fetch_array(query)
+	print(query)
+	print(result)
+	return result
+	
+func get_records_player_best_10(multiplayer=-1, map_name="", pick_one=false):
+	var query = "SELECT user_name, timestamp, duration FROM Records "
+	var filter = ["WHERE"]
+	if multiplayer > -1:
+		filter.append("multiplayer = " + str(multiplayer))
+	if map_name != "":
+		filter.append("map_name = " + str(map_name))
+	if len(filter) > 1:
+		query += " AND ".join(filter) + " "
+	query += "GROUP BY user_name "
 	query += "ORDER BY duration ASC "
 	if pick_one:
 		query += "LIMIT 1;"
@@ -119,3 +141,6 @@ func get_user_by_name(name):
 
 func reset_leaderboards():
 	var query = "DELETE FROM Records;"
+	var result = db.query(query)
+	print(result)
+	return result

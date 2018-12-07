@@ -67,7 +67,7 @@ func insert_to_records(player_node, multiplayer):
 	var result = db.query(query)
 	return result
 
-func get_records_best_10(user_name="", multiplayer=-1):
+func get_records_best_10(user_name="", multiplayer=-1, pick_one=false):
 	var query = "SELECT * FROM Records "
 	var filter = ["WHERE"]
 	if user_name != "":
@@ -77,7 +77,10 @@ func get_records_best_10(user_name="", multiplayer=-1):
 	if len(filter) > 1:
 		query += " ".join(filter) + " "
 	query += "SORT BY duration ASC "
-	query += "LIMIT 10;"
+	if pick_one:
+		query += "LIMIT 1;"
+	else:
+		query += "LIMIT 10;"
 	var result = db.query(query)
 	print(result)
 	return result

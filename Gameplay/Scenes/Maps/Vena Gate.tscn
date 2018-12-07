@@ -17,6 +17,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 1568.66, -193.102, 1967.5 ],
 "_edit_vertical_guides_": [ 6096.4, -255.484 ]
 }
+map_name = "Vena Gate"
 
 [node name="Backwall" type="Sprite" parent="." index="0"]
 

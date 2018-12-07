@@ -1,6 +1,7 @@
 extends Node
 
 signal player_finished(player_node)
+export(String) var map_name = "World";
 
 # class member variables go here, for example:
 # var a = 2

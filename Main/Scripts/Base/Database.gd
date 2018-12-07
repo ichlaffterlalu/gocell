@@ -31,9 +31,9 @@ func _ready():
 	# Create users table
 	query = "CREATE TABLE Users (";
 	query += "name char(50) NOT NULL,";
-	query += "character_id int NOT NULL,";
+	query += "character_id int DEFAULT 1 NOT NULL,";
 	query += "PRIMARY KEY (name),";
-	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id)";
+	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id) ON DELETE SET DEFAULT";
 	query += ");";
 	result = db.query(query);
 	
@@ -43,7 +43,8 @@ func _ready():
 	query += "timestamp datetime NOT NULL,";
 	query += "duration double NOT NULL,";
 	query += "multiplayer boolean NOT NULL,";
-	query += "CONSTRAINT FK_User FOREIGN KEY (user_name) REFERENCES Users(name),";
+	query += "map_name char(200) NOT NULL,";
+	query += "CONSTRAINT FK_User FOREIGN KEY (user_name) REFERENCES Users(name) ON DELETE CASCADE,";
 	query += "PRIMARY KEY (user_name, timestamp)";
 	query += ");";
 	result = db.query(query);
@@ -58,13 +59,14 @@ func close():
 	# Close database
 	db.close();
 
-func insert_to_records(player_node, multiplayer):
+func insert_to_records(player_node, multiplayer, map_name):
 	var timestamp = OS.get_datetime()
-	var query = "INSERT INTO Records (user_name, timestamp, duration, multiplayer) VALUES ("
+	var query = "INSERT INTO Records (user_name, timestamp, duration, multiplayer, map_name) VALUES ("
 	query += "'" + player_node.player_name + "', "
 	query += "'%04d-%02d-%02d %02d:%02d:%02d', " % [timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute, timestamp.second]
 	query += str(player_node.finish_time/1000) + ", "
-	query += str(multiplayer) + ");"
+	query += str(multiplayer) + ", "
+	query += "'" + map_name + "');"
 	var result = db.query(query)
 	return result
 
@@ -77,12 +79,13 @@ func get_records_best_10(user_name="", multiplayer=-1, pick_one=false):
 		filter.append("multiplayer = " + str(multiplayer))
 	if len(filter) > 1:
 		query += " ".join(filter) + " "
-	query += "SORT BY duration ASC "
+	query += "ORDER BY duration ASC "
 	if pick_one:
 		query += "LIMIT 1;"
 	else:
 		query += "LIMIT 10;"
 	var result = db.fetch_array(query)
+	print(query)
 	print(result)
 	return result
 
@@ -113,3 +116,6 @@ func get_user_by_name(name):
 	var result = db.fetch_array(query)
 	print(result)
 	return result
+
+func reset_leaderboards():
+	var query = "DELETE FROM Records;"

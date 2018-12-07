@@ -42,7 +42,7 @@ func _on_GameMenu_stage_restart():
 
 func _on_World_player_finished(player_node):
 	emit_signal("time_trial_win", player_node)
-	DB.insert_to_records(player_node, 0)
+	DB.insert_to_records(player_node, 0, world.map_name)
 
 func _on_FinishedLabel_finished_waiting():
 	finished_waiting = true

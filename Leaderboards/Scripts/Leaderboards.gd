@@ -1,29 +1,32 @@
-extends Control
+extends "res://Main/Scripts/Base/SceneFade.gd"
 
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+onready var fastest_races = $MainPage/Main/Container/Scroll/VBoxContainer/FastestRaces
 
 func _ready():
+	ready_fade()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	var tree = $MainPage/Main/Container/Scroll/VBoxContainer/FastestRaces
-	tree.set_column_title(0, "Player Name")
-	tree.set_column_title(1, "Date/Time")
-	tree.set_column_title(2, "Race Time")
-	tree.set_column_title(3, "Mode")
-	tree.set_column_title(4, "Map Name")
-	tree.set_column_titles_visible(true)
-	var root = tree.create_item()
-	for x in range(10):
-		var child = tree.create_item(root)
-		child.set_text(0, "a")
-		child.set_text(1, "a")
-		child.set_text(2, "a")
-		child.set_text(3, "a")
-		child.set_text(4, "a")
+	_init_fastest_races()
+	_init_fastest_players()
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _init_fastest_races():
+	fastest_races.set_column_title(0, "Player Name")
+	fastest_races.set_column_title(1, "Date/Time")
+	fastest_races.set_column_title(2, "Time (s)")
+	fastest_races.set_column_title(3, "Mode")
+	fastest_races.set_column_title(4, "Map Name")
+	fastest_races.set_column_titles_visible(true)
+	var root = fastest_races.create_item()
+	var arr = DB.get_records_best_10()
+	for row in arr:
+		var child = fastest_races.create_item(root)
+		var i = 0
+		for key in row:
+			child.set_text(i, str(row[key]))
+			i += 1
+
+func _init_fastest_players():
+	pass

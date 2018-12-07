@@ -25,7 +25,7 @@ func _initialize_players_modification():
 		var button_player_1 = Button.new()
 		button_player_1.name = str(character["id"])
 		button_player_1.icon = load(character["texture_address"])
-		button_player_1.hint_tooltip = "Name: %s\nStamina: %s\nTop Speed: %f\nAcceleration%f" % [character["name"], character["stamina"], character["top_speed"], character["acceleration"]]
+		button_player_1.hint_tooltip = "Name: %s\nStamina: %s\nTop Speed: %f\nAcceleration: %f" % [character["name"], character["stamina"], character["top_speed"], character["acceleration"]]
 		button_player_1.group = player_1_group
 		button_player_1.toggle_mode = true
 		if button_player_1.name == str(Global.player_1_character_id):

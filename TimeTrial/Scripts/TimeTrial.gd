@@ -10,7 +10,6 @@ onready var camera1 = $Viewports/ViewportContainer1/Viewport1/Camera2D
 onready var world = $Viewports/ViewportContainer1/Viewport1/World
 onready var t = Timer.new()
 
-var finished_players = []
 var exit_mode = null
 var finished_waiting = false
 
@@ -42,9 +41,8 @@ func _on_GameMenu_stage_restart():
 
 
 func _on_World_player_finished(player_node):
-	finished_players.append(player_node)
-	if len(finished_players) == 1:
-		emit_signal("time_trial_win", player_node)
+	emit_signal("time_trial_win", player_node)
+	DB.insert_to_records(player_node, 0)
 
 func _on_FinishedLabel_finished_waiting():
 	finished_waiting = true

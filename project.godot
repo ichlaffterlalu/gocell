@@ -14,6 +14,11 @@ config/name="Go-Cell (Integration v2 Branch)"
 run/main_scene="res://Main/Scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Main/Scripts/Base/Global.gd"
+DB="*res://Main/Scripts/Base/Database.gd"
+
 [display]
 
 window/size/width=640

@@ -10,7 +10,8 @@ var game_start_time = 0
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	$Player.set_player_name(Global.player_1_name)
+	$Player2.set_player_name(Global.player_2_name)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

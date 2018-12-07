@@ -20,23 +20,6 @@ onready var t = Timer.new()
 var finished_players = []
 var exit_mode = null
 var finished_waiting = false
-
-func _insert_to_leaderboard(player_node):
-	var timestamp = OS.get_datetime()
-	var query = "INSERT INTO Records (user_name, timestamp, duration, multiplayer) VALUES ("
-	query += "'" + player_node.player_name + "', "
-	query += "'%04d-%02d-%02d %02d:%02d:%02d', " % [timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute, timestamp.second];
-	query += str(player_node.finish_time/1000) + ", "
-	query += "0);"
-	print(query)
-	
-	var db = preload("res://lib/gdsqlite.gdns").new()
-	if (!db.open_db("user://data.sqlite3")):
-		print("Cannot open database.")
-		return false
-	var result = db.query(query)
-	db.close()
-	return result
 	
 func _ready():
 	ready_fade()
@@ -74,13 +57,13 @@ func _on_World_player_finished(player_node):
 		elif player_node.id == 2:
 			emit_signal("win_2", player_node)
 			emit_signal("waiting_1")
-		print(_insert_to_leaderboard(player_node))
+		print(DB.insert_to_records(player_node, 1))
 	elif !finished_waiting:
 		if player_node.id == 1:
 			emit_signal("lose_1", player_node)
 		elif player_node.id == 2:
 			emit_signal("lose_2", player_node)
-		print(_insert_to_leaderboard(player_node))
+		print(DB.insert_to_records(player_node, 1))
 
 func _on_FinishedLabel_finished_waiting():
 	finished_waiting = true

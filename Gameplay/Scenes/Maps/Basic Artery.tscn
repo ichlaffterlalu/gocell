@@ -9,7 +9,7 @@
 [ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Gameplay/Assets/music/field of hopes and dreams.ogg" type="AudioStream" id=8]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]

@@ -97,7 +97,7 @@ func get_character_by_id(id):
 
 func insert_to_users(name, character_id):
 	var query = "INSERT INTO Users (user_name, character_id) VALUES ("
-	query += "'" + player_node.player_name + "', "
+	query += "'" + name + "', "
 	query += str(character_id) + ");"
 	var result = db.query(query)
 	print(result)

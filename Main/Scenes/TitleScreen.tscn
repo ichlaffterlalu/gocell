@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
 }
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -532,10 +532,10 @@ margin_bottom = 371.0
 
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 169.0
-margin_top = 215.0
-margin_right = 528.0
-margin_bottom = 287.0
+margin_left = 155.0
+margin_top = 174.0
+margin_right = 541.0
+margin_bottom = 329.0
 
 [node name="Fade" parent="." index="1" instance=ExtResource( 12 )]
 

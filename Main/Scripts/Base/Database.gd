@@ -50,7 +50,8 @@ func _ready():
 
 func _init_characters(db):
 	var query = "INSERT INTO Characters(id, name, texture_address, stamina, top_speed, acceleration) VALUES ";
-	query += "(1, 'Red Blood Cell', 'res://Gameplay/Assets/red cell.png', 5, 200, 12.5);";
+	query += "(1, 'Red Blood Cell', 'res://Gameplay/Assets/red cell.png', 5, 200, 12.5), ";
+	query += "(2, 'White Blood Cell', 'res://Gameplay/Assets/white cell.png', 7, 200, 10);";
 	return db.query(query);
 
 func close():
@@ -81,20 +82,20 @@ func get_records_best_10(user_name="", multiplayer=-1, pick_one=false):
 		query += "LIMIT 1;"
 	else:
 		query += "LIMIT 10;"
-	var result = db.query(query)
+	var result = db.fetch_array(query)
 	print(result)
 	return result
 
 func list_characters():
 	var query = "SELECT * FROM Characters;"
-	var result = db.query(query)
+	var result = db.fetch_array(query)
 	print(result)
 	return result
 
 func get_character_by_id(id):
 	var query = "SELECT * FROM Characters "
 	query += "WHERE id = " + str(id) + ";"
-	var result = db.query(query)
+	var result = db.fetch_array(query)
 	print(result)
 	return result
 
@@ -109,6 +110,6 @@ func insert_to_users(name, character_id):
 func get_user_by_name(name):
 	var query = "SELECT * FROM Users "
 	query += "WHERE name = " + name + ";"
-	var result = db.query(query)
+	var result = db.fetch_array(query)
 	print(result)
 	return result

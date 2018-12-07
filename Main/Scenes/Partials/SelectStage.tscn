@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main/Scripts/Menus/SelectStage.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=3]
 [ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Gameplay/Assets/red cell.png" type="Texture" id=5]
-[ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=5]
 
 [node name="SelectStage" type="MarginContainer" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -32,7 +32,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 386.0
-margin_bottom = 254.0
+margin_bottom = 155.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -47,9 +47,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
 margin_right = 378.0
-margin_bottom = 217.0
+margin_bottom = 155.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -191,7 +190,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 98.0
 margin_right = 378.0
-margin_bottom = 181.0
+margin_bottom = 155.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -209,7 +208,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 179.0
-margin_bottom = 83.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -273,7 +272,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 57.0
 margin_right = 179.0
-margin_bottom = 85.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -282,31 +281,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/separation = 5
 alignment = 1
-_sections_unfolded = [ "custom_constants" ]
-
-[node name="Button" type="Button" parent="Main/Container/Players/Player1/Characters" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 72.0
-margin_right = 106.0
-margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-icon = ExtResource( 5 )
-flat = false
-align = 1
+_sections_unfolded = [ "Hint", "custom_constants" ]
 
 [node name="Player2" type="VBoxContainer" parent="Main/Container/Players" index="1"]
 
@@ -316,7 +291,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 199.0
 margin_right = 378.0
-margin_bottom = 83.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -380,7 +355,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 57.0
 margin_right = 179.0
-margin_bottom = 85.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -391,31 +366,7 @@ custom_constants/separation = 5
 alignment = 1
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="Button" type="Button" parent="Main/Container/Players/Player2/Characters" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 72.0
-margin_right = 106.0
-margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-icon = ExtResource( 5 )
-flat = false
-align = 1
-
-[node name="FadeAnimation" parent="." index="1" instance=ExtResource( 6 )]
+[node name="FadeAnimation" parent="." index="1" instance=ExtResource( 5 )]
 
 [connection signal="animation_finished" from="FadeAnimation" to="." method="_on_FadeAnimation_animation_finished"]
 

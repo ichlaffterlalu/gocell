@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
-const UP = Vector2(0,-1)
-const GRAVITY = 20/2
-const ACCEL = 25/2
-const SPEED = 400/2
-const JUMP_HEIGHT = -600/2
+var UP = Vector2(0,-1)
+var GRAVITY = 20/2
+var ACCEL = 25/2
+var SPEED = 400/2
+var JUMP_HEIGHT = -600/2
+var MAX_STAM = 5
 
 signal first_move(start_time)
 signal player_finished(player_node)
@@ -26,7 +27,7 @@ var player_active = false
 var finish_time = 0
 var finish = false
 var boost = true
-var stamina = 5
+var stamina = MAX_STAM
 var accel_right = 0
 var accel_left = 0
 
@@ -55,11 +56,19 @@ func set_player_name(val):
 		player_name = val
 		$Label.text = player_name
 
-func _ready():
-	if player_texture != null:
+func set_character(val):
+	var character = DB.get_character_by_id(val)[0]
+	if (!player_active && !finish):
+		SPEED = character["top_speed"]
+		ACCEL = character["acceleration"]
+		MAX_STAM = character["stamina"]
+		player_texture = load(character["texture_address"])
+		current_max_speed = SPEED
+		stamina = MAX_STAM
 		$Sprite.set_texture(player_texture)
-	else:
-		 _init_change_color_modulation(id)
+		if Global.player_1_character_id == Global.player_2_character_id:
+			_init_change_color_modulation(id)
+func _ready():
 	if jump_sound != null:
 		$Jump.stream = jump_sound
 	$Label.text = player_name
@@ -83,7 +92,7 @@ func _squared_dist_two_coord(coord1, coord2):
 func _physics_process(delta):
 	if (player_active):
 		
-		if (stamina < 5 and boost and not recov):
+		if (stamina < MAX_STAM and boost and not recov):
 			recov = true
 			emit_signal("recovery")
 		
@@ -167,6 +176,6 @@ func _on_Timer_timeout():
 	current_max_speed = SPEED
 	print(stamina)
 	boostclick = 0
-	if (stamina == 5):
+	if (stamina == MAX_STAM):
 		recov = false
 		$Timer.stop()

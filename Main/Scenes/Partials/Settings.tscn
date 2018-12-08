@@ -1,13 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main/Scripts/Settings.gd" type="Script" id=1]
-[ext_resource path="res://Main/Assets/Fonts/20.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Main/Assets/Fonts/24.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Main/Scripts/Animations/Fade.gd" type="Script" id=3]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Gameplay/Assets/sfx/dash.ogg" type="AudioStream" id=5]
 
-[node name="Settings" type="MarginContainer" index="0"]
+[node name="Settings" type="MarginContainer"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -26,7 +27,6 @@ _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "Visibility", "
 
 [node name="TabContainer" type="TabContainer" parent="." index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -53,7 +53,7 @@ anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 44.0
+margin_top = 37.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -94,7 +94,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 324.0
-margin_bottom = 172.0
+margin_bottom = 179.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -112,7 +112,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 304.0
-margin_bottom = 32.0
+margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -136,9 +136,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 52.0
+margin_top = 45.0
 margin_right = 304.0
-margin_bottom = 84.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -162,9 +162,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 104.0
+margin_top = 90.0
 margin_right = 304.0
-margin_bottom = 136.0
+margin_bottom = 115.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -184,12 +184,13 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Sounds" type="Tabs" parent="TabContainer" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 44.0
+margin_top = 35.0
 margin_right = -4.0
 margin_bottom = -4.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -230,7 +231,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 324.0
-margin_bottom = 172.0
+margin_bottom = 181.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -247,9 +248,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 27.0
-margin_right = 120.0
-margin_bottom = 125.0
+margin_top = 42.0
+margin_right = 116.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -266,8 +267,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 120.0
-margin_bottom = 26.0
+margin_right = 116.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -287,9 +288,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 36.0
-margin_right = 92.0
-margin_bottom = 62.0
+margin_top = 29.0
+margin_right = 88.0
+margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -308,9 +309,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 112.0
-margin_bottom = 98.0
+margin_top = 58.0
+margin_right = 104.0
+margin_bottom = 77.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -329,10 +330,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 140.0
-margin_top = 37.0
+margin_left = 136.0
+margin_top = 41.0
 margin_right = 304.0
-margin_bottom = 115.0
+margin_bottom = 119.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -349,7 +350,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 164.0
+margin_right = 168.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -377,7 +378,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 31.0
-margin_right = 164.0
+margin_right = 168.0
 margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -405,7 +406,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 62.0
-margin_right = 164.0
+margin_right = 168.0
 margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

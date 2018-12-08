@@ -55,6 +55,7 @@ func _on_FadeAnimation_animation_finished(anim_name):
 
 
 func _on_Player_time_trial_lose(player_node):
+	print("hehe")
 	$VBox/WinLose.text = player_node.player_name + " Lose!"
 	$VBox/Statistics.text = player_node.player_name + " can't beat it's own record right now :("
 	$FadeAnimation.play("fade_in")
@@ -65,7 +66,7 @@ func _on_Player_time_trial_lose(player_node):
 
 func _on_Player_time_trial_win(player_node):
 	$VBox/WinLose.text = player_node.player_name + " Win!"
-	$VBox/Statistics.text = player_node.player_name + " finished the time trial with a glorious success!"
+	$VBox/Statistics.text = player_node.player_name + " finished the time trial\nwith a glorious new record of...\n" + str(player_node.finish_time/1000.0) + " s!"
 	$FadeAnimation.play("fade_in")
 	self.show()
 	GameplayVar.finished_waiting()

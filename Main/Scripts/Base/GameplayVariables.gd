@@ -19,6 +19,9 @@ func pause_status(status):
 			_pause_stop_timestamps.append(OS.get_ticks_msec())
 
 func count_finish_time(timestamp_msec):
+	if not is_game_started():
+		return 0
+	
 	var result = 0
 	var pause_durations = []
 

@@ -36,3 +36,9 @@ func _on_game_change_status(active_status):
 	$Player.set_player_active(active_status)
 	if !time_trial_mode:
 		$Player2.set_player_active(active_status)
+
+func get_player_1_node():
+	return $Player
+
+func get_player_2_node():
+	return $Player2

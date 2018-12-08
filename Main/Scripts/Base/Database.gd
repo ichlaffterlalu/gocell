@@ -72,32 +72,43 @@ func insert_to_records(player_node, multiplayer, map_name):
 
 func get_records_best_10(user_name="", multiplayer=-1, map_name="", pick_one=false):
 	var query = "SELECT * FROM Records "
-	var filter = ["WHERE"]
+	var filter = []
 	if user_name != "":
 		filter.append("user_name = '" + user_name + "'")
 	if multiplayer > -1:
 		filter.append("multiplayer = " + str(multiplayer))
 	if map_name != "":
-		filter.append("map_name = " + str(map_name))
+		filter.append("map_name = '" + str(map_name) + "'")
 	if len(filter) > 1:
-		query += " AND ".join(filter) + " "
+		query += "WHERE " + filter[0]
+		for i in range(1, len(filter)):
+			query += " AND " + filter[i]
+		query += " "
+	elif len(filter) == 1:
+		query += "WHERE " + filter[0] + " "
 	query += "ORDER BY duration ASC "
 	if pick_one:
 		query += "LIMIT 1;"
 	else:
 		query += "LIMIT 10;"
+	print(query)
 	var result = db.fetch_array(query)
 	return result
 
 func get_records_player_best_10(multiplayer=-1, map_name="", pick_one=false):
 	var query = "SELECT user_name, timestamp, duration FROM Records "
-	var filter = ["WHERE"]
+	var filter = []
 	if multiplayer > -1:
 		filter.append("multiplayer = " + str(multiplayer))
 	if map_name != "":
-		filter.append("map_name = " + str(map_name))
+		filter.append("map_name = '" + str(map_name) + "'")
 	if len(filter) > 1:
-		query += " AND ".join(filter) + " "
+		query += "WHERE " + filter[0]
+		for i in range(1, len(filter)):
+			query += " AND " + filter[i]
+		query += " "
+	elif len(filter) == 1:
+		query += "WHERE " + filter[0] + " "
 	query += "GROUP BY user_name "
 	query += "ORDER BY duration ASC "
 	if pick_one:

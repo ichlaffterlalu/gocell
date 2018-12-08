@@ -30,8 +30,7 @@ func _on_Player_lose(player_node):
 		$FadeAnimation.stop()
 	$VBox/WinLose.text = player_node.player_name + " Lose!"
 	$VBox/Statistics.text = player_node.player_name + " finished 2nd\nwith total time of " + str(player_node.finish_time/1000) + "s!"
-
-
+	emit_signal("finished_waiting")
 
 func _on_Player_waiting():
 	$FadeAnimation.play("countdown_lose")

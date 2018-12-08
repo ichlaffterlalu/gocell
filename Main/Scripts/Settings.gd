@@ -70,6 +70,7 @@ func _on_ResetLeaderboards_pressed():
 	dialog.popup_centered()
 
 func _on_ResetLeaderboards_confirmed():
+	DB.reset_leaderboards()
 	emit_signal("need_restart")
 
 func _on_ResetOverallGame_pressed():
@@ -85,4 +86,5 @@ func _on_ResetOverallGame_pressed():
 	dialog.popup_centered()
 
 func _on_ResetOverallGame_confirmed():
+	DB.reset_game_data()
 	emit_signal("need_restart")

@@ -24,9 +24,9 @@ func _ready():
 
 
 func _on_Player_lose(player_node):
-	if not GameplayVar.gameplay_is_cutted_off():
+	if not self.is_visible_in_tree():
 		self.toggle(true)
-	else:
+	elif not GameplayVar.gameplay_is_cutted_off():
 		$FadeAnimation.stop()
 	$VBox/WinLose.text = player_node.player_name + " Lose!"
 	$VBox/Statistics.text = player_node.player_name + " finished 2nd\nwith total time of " + str(player_node.finish_time/1000) + "s!"

@@ -6,7 +6,7 @@
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Gameplay/Assets/sfx/dash.ogg" type="AudioStream" id=5]
 
-[node name="Settings" type="MarginContainer"]
+[node name="Settings" type="MarginContainer" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -14,8 +14,8 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 360.0
-margin_bottom = 240.0
-rect_min_size = Vector2( 360, 240 )
+margin_bottom = 180.0
+rect_min_size = Vector2( 360, 180 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -33,7 +33,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 360.0
-margin_bottom = 240.0
+margin_bottom = 180.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -79,10 +79,10 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 _sections_unfolded = [ "Rect", "custom_constants" ]
 
 [node name="Player1" type="VBoxContainer" parent="TabContainer/Game Data/MarginContainer" index="0"]
@@ -91,10 +91,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 324.0
-margin_bottom = 179.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 334.0
+margin_bottom = 129.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -102,43 +102,18 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 custom_constants/separation = 20
-alignment = 0
+alignment = 1
 _sections_unfolded = [ "Size Flags", "custom_constants" ]
 
-[node name="Statistics" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="0"]
+[node name="ResetLeaderboards" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 304.0
-margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Show Detailed Statistics"
-flat = false
-align = 1
-_sections_unfolded = [ "custom_constants", "custom_fonts" ]
-
-[node name="ResetLeaderboards" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 45.0
-margin_right = 304.0
-margin_bottom = 70.0
+margin_top = 24.0
+margin_right = 324.0
+margin_bottom = 49.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -156,15 +131,15 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="ResetOverallGame" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="2"]
+[node name="ResetOverallGame" type="Button" parent="TabContainer/Game Data/MarginContainer/Player1" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 90.0
-margin_right = 304.0
-margin_bottom = 115.0
+margin_top = 69.0
+margin_right = 324.0
+margin_bottom = 94.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -216,10 +191,10 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
 _sections_unfolded = [ "custom_constants" ]
 
 [node name="Container" type="HBoxContainer" parent="TabContainer/Sounds/MarginContainer" index="0"]
@@ -228,10 +203,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 324.0
-margin_bottom = 181.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 334.0
+margin_bottom = 131.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -248,9 +223,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 42.0
+margin_top = 22.0
 margin_right = 116.0
-margin_bottom = 119.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -331,9 +306,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 136.0
-margin_top = 41.0
-margin_right = 304.0
-margin_bottom = 119.0
+margin_top = 21.0
+margin_right = 324.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -350,7 +325,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 168.0
+margin_right = 188.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -378,7 +353,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 31.0
-margin_right = 168.0
+margin_right = 188.0
 margin_bottom = 47.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -406,7 +381,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 62.0
-margin_right = 168.0
+margin_right = 188.0
 margin_bottom = 78.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -439,6 +414,10 @@ mix_target = 0
 bus = "SFX"
 
 [connection signal="fade_out_finished" from="TabContainer" to="." method="_on_TabContainer_fade_out_finished"]
+
+[connection signal="pressed" from="TabContainer/Game Data/MarginContainer/Player1/ResetLeaderboards" to="." method="_on_ResetLeaderboards_pressed"]
+
+[connection signal="pressed" from="TabContainer/Game Data/MarginContainer/Player1/ResetOverallGame" to="." method="_on_ResetOverallGame_pressed"]
 
 [connection signal="value_changed" from="TabContainer/Sounds/MarginContainer/Container/Sliders/Master" to="." method="_on_Master_sound_value_changed"]
 

@@ -5,6 +5,7 @@ extends Control
 # var b = "textvar"
 
 signal game_change_status(active_status)
+signal need_restart()
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -31,3 +32,7 @@ func _on_PopupDialog_fade_out_finished():
 
 func _on_Close_pressed():
 	self.toggle(false) # replace with function body
+
+
+func _need_restart():
+	emit_signal("need_restart")

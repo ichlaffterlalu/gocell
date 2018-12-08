@@ -85,6 +85,8 @@ _sections_unfolded = [ "Rect" ]
 
 [connection signal="fade_out_finished" from="PopupDialog" to="." method="_on_PopupDialog_fade_out_finished"]
 
+[connection signal="need_restart" from="PopupDialog/Settings" to="." method="_need_restart"]
+
 [connection signal="pressed" from="PopupDialog/Close" to="." method="_on_Close_pressed"]
 
 [connection signal="animation_finished" from="PopupDialog/FadeAnimation" to="PopupDialog" method="_on_FadeAnimation_animation_finished"]

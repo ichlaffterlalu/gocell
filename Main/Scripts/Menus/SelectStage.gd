@@ -61,4 +61,6 @@ func _on_SceneButton_pressed(path):
 	Global.player_2_name = $Main/Container/Players/Player2/Name.text
 	Global.player_1_character_id = player_1_group.get_pressed_button().name
 	Global.player_2_character_id = player_2_group.get_pressed_button().name
+	DB.insert_to_users(Global.player_1_name, Global.player_1_character_id)
+	DB.insert_to_users(Global.player_2_name, Global.player_2_character_id)
 	emit_signal("user_choosed", "res://" + to_gameplay_type + "/" + path)

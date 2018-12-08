@@ -47,6 +47,8 @@ func _on_Exit_pressed():
 func _on_Fade_fade_in_finished():
 	if scene_path_to_load == "exit_game":
 		get_tree().quit()
+	elif scene_path_to_load == "restart":
+		get_tree().reload_current_scene()
 	else:
 		get_tree().change_scene(scene_path_to_load)
 
@@ -55,3 +57,8 @@ func _on_SelectStage_fade_out_finished():
 	if _current_subscene == "select_stage":
 		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(true)
 		_current_subscene = ""
+
+
+func _on_Settings_need_restart():
+	$Fade.fade_in()
+	scene_path_to_load = "restart"

@@ -524,9 +524,9 @@ anims/rotate = SubResource( 1 )
 [node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 10 )]
 
 margin_left = 168.0
-margin_top = 131.0
+margin_top = 161.0
 margin_right = 528.0
-margin_bottom = 371.0
+margin_bottom = 341.0
 
 [node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 11 )]
 
@@ -557,6 +557,8 @@ bus = "Music"
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Exit" to="." method="_on_Exit_pressed"]
 
 [connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo" method="_on_FadeAnimation_animation_finished"]
+
+[connection signal="need_restart" from="MainPage/Container/HBox/RightSide/Dashboard/Settings" to="." method="_on_Settings_need_restart"]
 
 [connection signal="fade_out_finished" from="MainPage/Container/HBox/RightSide/Dashboard/SelectStage" to="." method="_on_SelectStage_fade_out_finished"]
 

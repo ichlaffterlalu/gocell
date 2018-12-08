@@ -119,7 +119,7 @@ func get_character_by_id(id):
 	return result
 
 func insert_to_users(name, character_id):
-	var query = "INSERT INTO Users (user_name, character_id) VALUES ("
+	var query = "INSERT OR REPLACE INTO Users (user_name, character_id) VALUES ("
 	query += "'" + name + "', "
 	query += str(character_id) + ");"
 	var result = db.query(query)
@@ -132,6 +132,14 @@ func get_user_by_name(name):
 	return result
 
 func reset_leaderboards():
-	var query = "DELETE FROM Records;"
+	var query = "TRUNCATE TABLE Records;"
 	var result = db.query(query)
+	return result
+
+func reset_game_data():
+	var result = []
+	var query = "TRUNCATE TABLE Records;"
+	result.append(db.query(query))
+	query = "TRUNCATE TABLE Users;"
+	result.append(db.query(query))
 	return result

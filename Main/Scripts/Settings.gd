@@ -1,5 +1,7 @@
 extends Control
 
+signal need_restart()
+
 onready var int_bus_master = AudioServer.get_bus_index("Master")
 onready var int_bus_music = AudioServer.get_bus_index("Music")
 onready var int_bus_sfx = AudioServer.get_bus_index("SFX")
@@ -53,3 +55,34 @@ func _on_SFX_value_changed(value):
 
 func _on_Music_value_changed(value):
 	set_bus_to_vol_percent(int_bus_music, value)
+
+
+func _on_ResetLeaderboards_pressed():
+	var dialog = ConfirmationDialog.new()
+	dialog.window_title = "Confirm Reset Leaderboards"
+	var text = "Are you sure to reset leaderboards?\n"
+	text += "We will restart this game back to title screen if you confirm.\n"
+	text += "We will only delete player records, not player data itself, if you confirm."
+	dialog.dialog_text = text
+	dialog.popup_exclusive = true
+	dialog.connect("confirmed", self, "_on_ResetLeaderboards_confirmed")
+	self.add_child(dialog)
+	dialog.popup_centered()
+
+func _on_ResetLeaderboards_confirmed():
+	emit_signal("need_restart")
+
+func _on_ResetOverallGame_pressed():
+	var dialog = ConfirmationDialog.new()
+	dialog.window_title = "Confirm Reset Game Data"
+	var text = "Are you sure to reset overall game data?\n"
+	text += "We will restart this game back to title screen if you confirm.\n"
+	text += "We will delete all player related data, if you confirm."
+	dialog.dialog_text = text
+	dialog.popup_exclusive = true
+	dialog.connect("confirmed", self, "_on_ResetOverallGame_confirmed")
+	self.add_child(dialog)
+	dialog.popup_centered()
+
+func _on_ResetOverallGame_confirmed():
+	emit_signal("need_restart")

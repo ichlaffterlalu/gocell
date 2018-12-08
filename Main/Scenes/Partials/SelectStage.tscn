@@ -6,7 +6,7 @@
 [ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=5]
 
-[node name="SelectStage" type="MarginContainer"]
+[node name="SelectStage" type="MarginContainer" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -32,7 +32,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 532.0
-margin_bottom = 155.0
+margin_bottom = 164.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -48,7 +48,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 524.0
-margin_bottom = 155.0
+margin_bottom = 164.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -126,6 +126,7 @@ text = "Basic Artery"
 flat = false
 align = 1
 script = ExtResource( 3 )
+_sections_unfolded = [ "Rect" ]
 scene_to_load = "Scenes/Stages/Stage 1.tscn"
 
 [node name="2" type="Button" parent="Main/Container/Stages" index="1"]
@@ -217,7 +218,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 98.0
 margin_right = 524.0
-margin_bottom = 155.0
+margin_bottom = 164.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -235,7 +236,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 252.0
-margin_bottom = 57.0
+margin_bottom = 66.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -275,7 +276,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 28.0
 margin_right = 252.0
-margin_bottom = 52.0
+margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -283,6 +284,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
 text = "Player 1"
 focus_mode = 2
 context_menu_enabled = true
@@ -297,9 +299,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 57.0
+margin_top = 66.0
 margin_right = 252.0
-margin_bottom = 57.0
+margin_bottom = 66.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -318,7 +320,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 272.0
 margin_right = 524.0
-margin_bottom = 57.0
+margin_bottom = 66.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -349,6 +351,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Name" type="LineEdit" parent="Main/Container/Players/Player2" index="1"]
 
@@ -358,7 +361,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 28.0
 margin_right = 252.0
-margin_bottom = 52.0
+margin_bottom = 61.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -366,6 +369,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
 text = "Player 2"
 focus_mode = 2
 context_menu_enabled = true
@@ -380,9 +384,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 57.0
+margin_top = 66.0
 margin_right = 252.0
-margin_bottom = 57.0
+margin_bottom = 66.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1

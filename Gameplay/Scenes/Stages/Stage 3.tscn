@@ -187,6 +187,8 @@ _sections_unfolded = [ "Pause" ]
 margin_right = 0.0
 margin_bottom = 0.0
 
+[connection signal="game_change_status" from="." to="Viewports/ViewportContainer2/Viewport2/World" method="_on_game_change_status"]
+
 [connection signal="lose_1" from="." to="Viewports/ViewportContainer1/FinishedLabel" method="_on_Player_lose"]
 
 [connection signal="lose_2" from="." to="Viewports/ViewportContainer2/FinishedLabel" method="_on_Player_lose"]

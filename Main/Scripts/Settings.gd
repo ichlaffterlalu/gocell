@@ -24,14 +24,12 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func _on_Button_pressed():
-	if $TabContainer.is_visible_in_tree():
+func toggle(status):
+	if not status and self.is_visible_in_tree():
 		$TabContainer.fade_out()
-	else:
+	elif status and not self.is_visible_in_tree():
 		$TabContainer.fade_in()
 		self.show()
-		$TabContainer.show()
-
 
 func _on_TabContainer_fade_out_finished():
 	$TabContainer.hide() # replace with function body
@@ -43,7 +41,6 @@ func set_bus_to_vol_percent(bus_idx, vol_percent):
 
 func _on_Master_sound_value_changed(value):
 	set_bus_to_vol_percent(int_bus_master, value)
-	pass # replace with function body
 
 
 func _on_SFX_value_changed(value):
@@ -52,9 +49,7 @@ func _on_SFX_value_changed(value):
 		sound_demo.play()
 		snd_last_play = snd_now
 	set_bus_to_vol_percent(int_bus_sfx, value)
-	pass # replace with function body
 
 
 func _on_Music_value_changed(value):
 	set_bus_to_vol_percent(int_bus_music, value)
-	pass # replace with function body

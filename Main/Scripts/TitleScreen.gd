@@ -4,16 +4,17 @@ extends "res://Main/Scripts/Base/SceneFade.gd"
 # var a = 2
 # var b = "textvar"
 var scene_path_to_load
+var _current_subscene = ""
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	ready_fade()
 	GameplayVar.reset_gameplay()
-	
+
 	for button in $MainPage/Container/HBox/LeftSide/MenuButtons/Scenes.get_children():
 		button.connect("pressed", self, "_on_ChangeScene_Button_pressed", [button.scene_to_load])
-	
+
 	for button in $MainPage/Container/HBox/LeftSide/MenuButtons/Gameplay.get_children():
 		button.connect("pressed", self, "_on_Gameplay_Button_pressed", [button.gameplay_type])
 
@@ -22,17 +23,22 @@ func _on_ChangeScene_Button_pressed(scene_to_load):
 	$Fade.fade_in()
 
 func _on_Gameplay_Button_pressed(gameplay_type):
+	$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(false)
+	$MainPage/Container/HBox/RightSide/Dashboard/Settings.toggle(false)
+	_current_subscene = "select_stage"
 	$MainPage/Container/HBox/RightSide/Dashboard/SelectStage._on_Button_pressed(gameplay_type)
-	if $MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.is_visible_in_tree():
-		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle()
-
-func _on_SelectStage_user_choosed(scene_path):
-	$Fade.fade_in()
-	scene_path_to_load = scene_path
 
 func _on_Settings_pressed():
-	$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle()
-	$MainPage/Container/HBox/RightSide/Dashboard/Settings._on_Button_pressed()
+	if _current_subscene != "settings":
+		$MainPage/Container/HBox/RightSide/Dashboard/SelectStage.toggle(false)
+		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(false)
+		_current_subscene = "settings"
+		$MainPage/Container/HBox/RightSide/Dashboard/Settings.toggle(true)
+	else:
+		$MainPage/Container/HBox/RightSide/Dashboard/SelectStage.toggle(false)
+		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(true)
+		$MainPage/Container/HBox/RightSide/Dashboard/Settings.toggle(false)
+		_current_subscene = ""
 
 func _on_Exit_pressed():
 	$Fade.fade_in()
@@ -46,4 +52,6 @@ func _on_Fade_fade_in_finished():
 
 
 func _on_SelectStage_fade_out_finished():
-	$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle()
+	if _current_subscene == "select_stage":
+		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(true)
+		_current_subscene = ""

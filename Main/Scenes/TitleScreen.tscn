@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
 }
 
-[node name="TitleScreen" type="Control" index="0"]
+[node name="TitleScreen" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -560,7 +560,7 @@ bus = "Music"
 
 [connection signal="fade_out_finished" from="MainPage/Container/HBox/RightSide/Dashboard/SelectStage" to="." method="_on_SelectStage_fade_out_finished"]
 
-[connection signal="user_choosed" from="MainPage/Container/HBox/RightSide/Dashboard/SelectStage" to="." method="_on_SelectStage_user_choosed"]
+[connection signal="user_choosed" from="MainPage/Container/HBox/RightSide/Dashboard/SelectStage" to="." method="_on_ChangeScene_Button_pressed"]
 
 [connection signal="fade_in_finished" from="Fade" to="." method="_on_Fade_fade_in_finished"]
 

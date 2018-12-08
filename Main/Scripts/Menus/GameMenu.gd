@@ -21,13 +21,11 @@ func _on_Button_pressed():
 		$PopupDialog.fade_out()
 	else:
 		get_tree().paused = true
-		emit_signal("game_change_status", false)
 		$PopupDialog.fade_in()
 		$PopupDialog.popup_centered()
 
 
 func _on_Continue_pressed():
-	get_tree().paused = false
 	$PopupDialog.fade_out()
 
 
@@ -37,9 +35,8 @@ func _on_Restart_pressed():
 
 
 func _on_Settings_pressed():
-	get_tree().paused = false
 	$PopupDialog.fade_out()
-	$Settings._on_Button_pressed()
+	$Settings.toggle(true)
 
 
 func _on_Return_pressed():
@@ -49,4 +46,11 @@ func _on_Return_pressed():
 
 func _on_PopupDialog_fade_out_finished():
 	$PopupDialog.hide()
-	emit_signal("game_change_status", true)
+	if not $Settings.is_visible_in_tree():
+		get_tree().paused = false
+		emit_signal("game_change_status", true)
+
+func _game_change_status(active_status):
+	get_tree().paused = !active_status
+	if GameplayVar.is_game_started():
+		emit_signal("game_change_status", active_status)

@@ -40,6 +40,7 @@ func _initialize_players_modification():
 		if button_player_2.name == str(Global.player_2_character_id):
 			button_player_2.pressed = true
 		$Main/Container/Players/Player2/Characters.add_child(button_player_2)
+
 func _on_Button_pressed(gameplay_type="Gameplay"):
 	if to_gameplay_type != gameplay_type && self.is_visible_in_tree():
 		to_gameplay_type = gameplay_type
@@ -49,7 +50,7 @@ func _on_Button_pressed(gameplay_type="Gameplay"):
 		to_gameplay_type = gameplay_type
 		self.fade_in()
 		self.show()
-	
+
 	if gameplay_type=="Gameplay":
 		$Main/Container/Players/Player2.show()
 	elif gameplay_type=="TimeTrial":

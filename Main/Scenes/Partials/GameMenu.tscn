@@ -7,7 +7,7 @@
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main/Scenes/Partials/SettingsPopup.tscn" type="PackedScene" id=6]
 
-[node name="GameMenu" type="Control"]
+[node name="GameMenu" type="Control" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0
@@ -251,5 +251,7 @@ align = 1
 [connection signal="pressed" from="PopupDialog/MarginContainer/VBoxContainer/Return" to="." method="_on_Return_pressed"]
 
 [connection signal="animation_finished" from="PopupDialog/FadeAnimation" to="PopupDialog" method="_on_FadeAnimation_animation_finished"]
+
+[connection signal="game_change_status" from="Settings" to="." method="_game_change_status"]
 
 

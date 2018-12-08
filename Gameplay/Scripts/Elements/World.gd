@@ -45,3 +45,11 @@ func _on_game_change_status(active_status):
 	$Player.set_player_active(active_status)
 	if !time_trial_mode:
 		$Player2.set_player_active(active_status)
+
+
+func _on_Player_player_finished(player_node):
+	pass # replace with function body
+
+
+func _on_Player_recovery():
+	pass # replace with function body

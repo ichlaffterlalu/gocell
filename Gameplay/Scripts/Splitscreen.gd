@@ -19,10 +19,10 @@ onready var t = Timer.new()
 
 var finished_players = []
 var exit_mode = null
-var finished_waiting = false
-	
+
 func _ready():
 	ready_fade()
+	GameplayVar.reset_gameplay()
 	viewport1.world_2d = viewport2.world_2d
 	camera1.target = world.get_node("Player")
 	camera2.target = world.get_node("Player2")
@@ -57,16 +57,13 @@ func _on_World_player_finished(player_node):
 		elif player_node.id == 2:
 			emit_signal("win_2", player_node)
 			emit_signal("waiting_1")
-		print(DB.insert_to_records(player_node, 1, world.map_name))
-	elif !finished_waiting:
+	elif not GameplayVar.gameplay_is_cutted_off():
 		if player_node.id == 1:
 			emit_signal("lose_1", player_node)
 		elif player_node.id == 2:
 			emit_signal("lose_2", player_node)
-		print(DB.insert_to_records(player_node, 1, world.map_name))
 
 func _on_FinishedLabel_finished_waiting():
-	finished_waiting = true
 	t.start()
 	yield(t, "timeout")
 	_on_GameMenu_return_to_title_screen()

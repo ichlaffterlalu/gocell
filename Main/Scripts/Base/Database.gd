@@ -10,10 +10,10 @@ func _ready():
 	if (!db.open_db("user://data.sqlite3")):
 		print("Cannot open database.");
 		return;
-	
+
 	var query = "";
 	var result = null;
-	
+
 	# Create characters table
 	query = "CREATE TABLE Characters (";
 	query += "id int NOT NULL,";
@@ -27,7 +27,7 @@ func _ready():
 	result = db.query(query);
 	if (result):
 		result = _init_characters(db);
-	
+
 	# Create users table
 	query = "CREATE TABLE Users (";
 	query += "name char(50) NOT NULL,";
@@ -36,7 +36,7 @@ func _ready():
 	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id) ON DELETE SET DEFAULT";
 	query += ");";
 	result = db.query(query);
-	
+
 	# Create records table
 	query = "CREATE TABLE Records (";
 	query += "user_name char(50) NOT NULL,";
@@ -87,10 +87,8 @@ func get_records_best_10(user_name="", multiplayer=-1, map_name="", pick_one=fal
 	else:
 		query += "LIMIT 10;"
 	var result = db.fetch_array(query)
-	print(query)
-	print(result)
 	return result
-	
+
 func get_records_player_best_10(multiplayer=-1, map_name="", pick_one=false):
 	var query = "SELECT user_name, timestamp, duration FROM Records "
 	var filter = ["WHERE"]
@@ -107,21 +105,17 @@ func get_records_player_best_10(multiplayer=-1, map_name="", pick_one=false):
 	else:
 		query += "LIMIT 10;"
 	var result = db.fetch_array(query)
-	print(query)
-	print(result)
 	return result
 
 func list_characters():
 	var query = "SELECT * FROM Characters;"
 	var result = db.fetch_array(query)
-	print(result)
 	return result
 
 func get_character_by_id(id):
 	var query = "SELECT * FROM Characters "
 	query += "WHERE id = " + str(id) + ";"
 	var result = db.fetch_array(query)
-	print(result)
 	return result
 
 func insert_to_users(name, character_id):
@@ -129,18 +123,15 @@ func insert_to_users(name, character_id):
 	query += "'" + name + "', "
 	query += str(character_id) + ");"
 	var result = db.query(query)
-	print(result)
 	return result
 
 func get_user_by_name(name):
 	var query = "SELECT * FROM Users "
 	query += "WHERE name = " + name + ";"
 	var result = db.fetch_array(query)
-	print(result)
 	return result
 
 func reset_leaderboards():
 	var query = "DELETE FROM Records;"
 	var result = db.query(query)
-	print(result)
 	return result

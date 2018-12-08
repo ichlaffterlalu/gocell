@@ -9,6 +9,7 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	ready_fade()
+	GameplayVar.reset_gameplay()
 	
 	for button in $MainPage/Container/HBox/LeftSide/MenuButtons/Scenes.get_children():
 		button.connect("pressed", self, "_on_ChangeScene_Button_pressed", [button.scene_to_load])

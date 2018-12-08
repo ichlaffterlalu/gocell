@@ -15,6 +15,7 @@ var finished_waiting = false
 
 func _ready():
 	ready_fade()
+	GameplayVar.reset_gameplay()
 	camera1.target = world.get_node("Player")
 	world._enable_time_trial_mode()
 	#setup timer for game end

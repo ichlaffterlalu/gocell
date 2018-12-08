@@ -91,17 +91,16 @@ func _squared_dist_two_coord(coord1, coord2):
 
 func _physics_process(delta):
 	if (player_active):
-		
+
 		if (stamina < MAX_STAM and boost and not recov):
 			recov = true
 			emit_signal("recovery")
-		
+
 		motion.y += GRAVITY
 		if Input.is_action_just_pressed("ui_right_%s" % id):
 			_check_started()
 			if motion.x > 0:
 				if stamina != 0:
-					print("TEST")
 					dash_sound.play(0)
 					stamina -= 1
 					print (stamina)
@@ -112,8 +111,8 @@ func _physics_process(delta):
 					current_max_speed = SPEED + 50 * (boostclick)
 			if boost:
 				print ("RIGHT BOOST. Current maximum speed = ",current_max_speed)
-				
-				
+
+
 		elif Input.is_action_just_pressed("ui_left_%s" % id):
 			_check_started()
 			if motion.x < 0:
@@ -125,27 +124,27 @@ func _physics_process(delta):
 					current_max_speed += 100/2
 					if boost:
 						print ("LEFT BOOST. Current maximum speed = ",current_max_speed)
-					
+
 		elif Input.is_action_pressed("ui_right_%s" % id):
 			_check_started()
 			if boost:
 				motion.x = min(motion.x + ACCEL, current_max_speed)
 			else:
 				motion.x = min(motion.x + ACCEL, SPEED)
-				
+
 		elif Input.is_action_pressed("ui_left_%s" % id):
 			_check_started()
 			if boost:
 				motion.x = max(motion.x - ACCEL, -current_max_speed)
 			else:
 				motion.x = max(motion.x - ACCEL, -SPEED)
-				
+
 		else:
 			motion.x = lerp(motion.x, 0, 0.1)
 			if motion.x == 0:
 				boost = false
 				current_max_speed = SPEED
-				
+
 		if is_on_floor():
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				_check_started()
@@ -156,22 +155,20 @@ func _physics_process(delta):
 			if (finish_line.y > 0 && ((finish_y_below && position.y > finish_line.y) || (!finish_y_below && position.y < finish_line.y))):
 				finish = true
 				player_active = false
-				finish_time = OS.get_ticks_msec()
-				
+				finish_time = GameplayVar.count_finish_time(OS.get_ticks_msec())
+
 				print ("Player ", id , " finish");
 				emit_signal("player_finished", self)
 		motion = move_and_slide(motion, UP)
 		var diff = _squared_dist_two_coord(pos_before_2, pos_before_1) - _squared_dist_two_coord(pos_before_1, Vector2(position.x, position.y))
 		if (diff > 10):
-			#print(log(diff))
 			$Hit.play()
 		pos_before_2 = pos_before_1
 		pos_before_1 = Vector2(position.x, position.y)
-	
-	
+
+
 
 func _on_Timer_timeout():
-	print("hello?")
 	stamina += 1
 	current_max_speed = SPEED
 	print(stamina)

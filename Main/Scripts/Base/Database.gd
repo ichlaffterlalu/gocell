@@ -64,7 +64,7 @@ func insert_to_records(player_node, multiplayer, map_name):
 	var query = "INSERT INTO Records (user_name, timestamp, duration, multiplayer, map_name) VALUES ("
 	query += "'" + player_node.player_name + "', "
 	query += "'%04d-%02d-%02d %02d:%02d:%02d', " % [timestamp.year, timestamp.month, timestamp.day, timestamp.hour, timestamp.minute, timestamp.second]
-	query += str(player_node.finish_time/1000) + ", "
+	query += str(player_node.finish_time/1000.0) + ", "
 	query += str(multiplayer) + ", "
 	query += "'" + map_name + "');"
 	var result = db.query(query)

@@ -36,11 +36,11 @@ func _init_fastest_races():
 
 func _init_fastest_players():
 	fastest_players.set_column_title(0, "Player Name")
-	fastest_players.set_column_min_width(0, 200)
+	fastest_players.set_column_min_width(0, 170)
 	fastest_players.set_column_title(1, "Date/Time")
 	fastest_players.set_column_min_width(1, 110)
-	fastest_players.set_column_title(2, "Time (s)")
-	fastest_players.set_column_min_width(2, 50)
+	fastest_players.set_column_title(2, "Best Time (s)")
+	fastest_players.set_column_min_width(2, 80)
 	fastest_players.set_column_titles_visible(true)
 	var root = fastest_players.create_item()
 	var arr = DB.get_records_player_best_10()

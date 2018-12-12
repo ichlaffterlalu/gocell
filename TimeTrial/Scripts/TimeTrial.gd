@@ -79,4 +79,4 @@ func _process(delta):
 		if record_duration >= 0 and time > record_duration:
 			stop_condition = true
 			emit_signal("time_trial_lose", world.get_player_1_node())
-	
+			emit_signal("game_change_status", false)

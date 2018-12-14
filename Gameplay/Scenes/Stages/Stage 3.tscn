@@ -3,11 +3,11 @@
 [ext_resource path="res://Gameplay/Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Scenes/Elements/FinishedLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Gameplay/Scripts/Elements/Camera2D.gd" type="Script" id=3]
-[ext_resource path="res://Gameplay/Scenes/Maps/Vena Gate.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Gameplay/Scenes/Maps/Grand Tour.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Main/Scenes/Partials/GameMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=6]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -102,8 +102,6 @@ script = ExtResource( 3 )
 
 [node name="World" parent="Viewports/ViewportContainer1/Viewport1" index="1" instance=ExtResource( 4 )]
 
-_sections_unfolded = [ "Pause" ]
-
 [node name="ViewportContainer2" type="ViewportContainer" parent="Viewports" index="1"]
 
 anchor_left = 0.0
@@ -150,6 +148,7 @@ shadow_atlas_quad_0 = 2
 shadow_atlas_quad_1 = 2
 shadow_atlas_quad_2 = 3
 shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "GUI" ]
 
 [node name="Camera2D" type="Camera2D" parent="Viewports/ViewportContainer2/Viewport2" index="0"]
 
@@ -178,6 +177,8 @@ editor_draw_drag_margin = false
 script = ExtResource( 3 )
 
 [node name="World" parent="Viewports/ViewportContainer2/Viewport2" index="1" instance=ExtResource( 4 )]
+
+_sections_unfolded = [ "Pause" ]
 
 [node name="GameMenu" parent="." index="1" instance=ExtResource( 5 )]
 
@@ -211,8 +212,6 @@ margin_bottom = 0.0
 [connection signal="start_game" from="Viewports/ViewportContainer2/FinishedLabel" to="." method="_on_FinishedLabel_start_game"]
 
 [connection signal="player_finished" from="Viewports/ViewportContainer2/Viewport2/World" to="." method="_on_World_player_finished"]
-
-[connection signal="game_change_status" from="GameMenu" to="Viewports/ViewportContainer2/Viewport2/World" method="_on_game_change_status"]
 
 [connection signal="return_to_title_screen" from="GameMenu" to="." method="_on_GameMenu_return_to_title_screen"]
 

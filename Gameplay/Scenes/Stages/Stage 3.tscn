@@ -3,7 +3,7 @@
 [ext_resource path="res://Gameplay/Scripts/Splitscreen.gd" type="Script" id=1]
 [ext_resource path="res://Gameplay/Scenes/Elements/FinishedLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Gameplay/Scripts/Elements/Camera2D.gd" type="Script" id=3]
-[ext_resource path="res://Gameplay/Scenes/Maps/Grand Tour.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Gameplay/Scenes/Maps/Ultimate Tour.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Main/Scenes/Partials/GameMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=6]
 

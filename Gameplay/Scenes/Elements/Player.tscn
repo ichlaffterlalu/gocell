@@ -1,20 +1,67 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Gameplay/Scripts/Elements/Player.gd" type="Script" id=1]
-[ext_resource path="res://Gameplay/Assets/red cell.png" type="Texture" id=2]
-[ext_resource path="res://Main/Assets/Fonts/3x6.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Gameplay/Scripts/Elements/Timer.gd" type="Script" id=4]
-[ext_resource path="res://Gameplay/Scripts/Elements/Stamlabel.gd" type="Script" id=5]
-[ext_resource path="res://Gameplay/Assets/sfx/dash.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Gameplay/Assets/sfx/jump.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Gameplay/Assets/sfx/hit.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-0.png" type="Texture" id=2]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-1.png" type="Texture" id=3]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-2.png" type="Texture" id=4]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-3.png" type="Texture" id=5]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-4.png" type="Texture" id=6]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-left-01.png" type="Texture" id=7]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-left-02.png" type="Texture" id=8]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-left-03.png" type="Texture" id=9]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-left-04.png" type="Texture" id=10]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-left-05.png" type="Texture" id=11]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-left-06.png" type="Texture" id=12]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-right-01.png" type="Texture" id=13]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-right-02.png" type="Texture" id=14]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-right-03.png" type="Texture" id=15]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-right-04.png" type="Texture" id=16]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-right-05.png" type="Texture" id=17]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-dash-right-06.png" type="Texture" id=18]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-jump-01.png" type="Texture" id=19]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-jump-02.png" type="Texture" id=20]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-jump-03.png" type="Texture" id=21]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-jump-04.png" type="Texture" id=22]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-jump-05.png" type="Texture" id=23]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-jump-06.png" type="Texture" id=24]
+[ext_resource path="res://Main/Assets/Fonts/3x6.tres" type="DynamicFont" id=25]
+[ext_resource path="res://Gameplay/Scripts/Elements/Timer.gd" type="Script" id=26]
+[ext_resource path="res://Gameplay/Scripts/Elements/Stamlabel.gd" type="Script" id=27]
+[ext_resource path="res://Gameplay/Assets/sfx/dash.ogg" type="AudioStream" id=28]
+[ext_resource path="res://Gameplay/Assets/sfx/jump.ogg" type="AudioStream" id=29]
+[ext_resource path="res://Gameplay/Assets/sfx/hit.ogg" type="AudioStream" id=30]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "dash-left",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "dash-right",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "jump",
+"speed": 15.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 11.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( -3510, 300.292 )
 scale = Vector2( 0.794921, 0.794921 )
@@ -31,15 +78,16 @@ player_name = null
 player_texture = null
 jump_sound = null
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-texture = ExtResource( 2 )
+frames = SubResource( 1 )
+animation = "idle"
 _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0, 0.628967 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Label" type="Label" parent="." index="2"]
@@ -60,7 +108,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 25 )
 text = "Player"
 align = 1
 valign = 2
@@ -75,7 +123,7 @@ process_mode = 1
 wait_time = 2.0
 one_shot = false
 autostart = false
-script = ExtResource( 4 )
+script = ExtResource( 26 )
 
 [node name="Stamlabel" type="Label" parent="." index="4"]
 
@@ -97,12 +145,12 @@ align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 5 )
+script = ExtResource( 27 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "custom_fonts" ]
 
 [node name="Dash" type="AudioStreamPlayer" parent="." index="5"]
 
-stream = ExtResource( 6 )
+stream = ExtResource( 28 )
 volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
@@ -111,7 +159,7 @@ bus = "SFX"
 
 [node name="Jump" type="AudioStreamPlayer" parent="." index="6"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 29 )
 volume_db = -15.0
 pitch_scale = 1.0
 autoplay = false
@@ -120,7 +168,7 @@ bus = "Master"
 
 [node name="Hit" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 30 )
 volume_db = 0.0
 pitch_scale = 0.5
 autoplay = false
@@ -128,6 +176,8 @@ mix_target = 0
 bus = "Master"
 
 [connection signal="recovery" from="." to="Timer" method="_on_Player_recovery"]
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

@@ -62,10 +62,10 @@ func set_character(val):
 		SPEED = character["top_speed"]
 		ACCEL = character["acceleration"]
 		MAX_STAM = character["stamina"]
-		player_texture = load(character["texture_address"])
+		#player_texture = load(character["texture_address"])
 		current_max_speed = SPEED
 		stamina = MAX_STAM
-		$Sprite.set_texture(player_texture)
+		#$Sprite.set_texture(player_texture)
 		if Global.player_1_character_id == Global.player_2_character_id:
 			_init_change_color_modulation(id)
 func _ready():
@@ -83,6 +83,7 @@ func _init_change_color_modulation(char_id):
 
 func _check_started():
 	if started == false:
+		$Sprite.play("idle")
 		emit_signal("first_move", OS.get_ticks_msec())
 	started = true
 
@@ -91,6 +92,7 @@ func _squared_dist_two_coord(coord1, coord2):
 
 func _physics_process(delta):
 	if (player_active):
+		var anim = null
 
 		if (stamina < MAX_STAM and boost and not recov):
 			recov = true
@@ -101,6 +103,8 @@ func _physics_process(delta):
 			_check_started()
 			if motion.x > 0:
 				if stamina != 0:
+					$Sprite.frame = 0
+					anim = "dash-right"
 					dash_sound.play(0)
 					stamina -= 1
 					print (stamina)
@@ -117,6 +121,9 @@ func _physics_process(delta):
 			_check_started()
 			if motion.x < 0:
 				if stamina != 0:
+					$Sprite.frame = 0
+					anim = "dash-left"
+					dash_sound.play(0)
 					stamina -= 1
 					print (stamina)
 					boost = true
@@ -148,6 +155,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			if Input.is_action_just_pressed("ui_up_%s" % id):
 				_check_started()
+				anim = "jump"
 				$Jump.play()
 				motion.y = JUMP_HEIGHT
 
@@ -161,12 +169,18 @@ func _physics_process(delta):
 				emit_signal("player_finished", self)
 		motion = move_and_slide(motion, UP)
 		var diff = _squared_dist_two_coord(pos_before_2, pos_before_1) - _squared_dist_two_coord(pos_before_1, Vector2(position.x, position.y))
-		if (diff > 10):
+		if (diff > 10) and not boost:
+			$Sprite.play("idle")
 			$Hit.play()
 		pos_before_2 = pos_before_1
 		pos_before_1 = Vector2(position.x, position.y)
+		if anim != null:
+			$Sprite.play(anim)
 
-
+func _on_Sprite_animation_finished():
+	if $Sprite.animation != "idle":
+		$Sprite.play("idle")
+		
 
 func _on_Timer_timeout():
 	stamina += 1

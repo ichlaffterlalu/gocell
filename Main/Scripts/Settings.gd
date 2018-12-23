@@ -60,9 +60,9 @@ func _on_Music_value_changed(value):
 func _on_ResetLeaderboards_pressed():
 	var dialog = ConfirmationDialog.new()
 	dialog.window_title = "Confirm Reset Leaderboards"
-	var text = "Are you sure to reset leaderboards?\n"
-	text += "We will restart this game back to title screen if you confirm.\n"
-	text += "We will only delete player records, not player data itself, if you confirm."
+	var text = "Reset leaderboards?\n"
+	text += "The player records will be erased, but not the player data."
+	#text += "The game will be restarted to title screen.\n"
 	dialog.dialog_text = text
 	dialog.popup_exclusive = true
 	dialog.connect("confirmed", self, "_on_ResetLeaderboards_confirmed")
@@ -76,9 +76,9 @@ func _on_ResetLeaderboards_confirmed():
 func _on_ResetOverallGame_pressed():
 	var dialog = ConfirmationDialog.new()
 	dialog.window_title = "Confirm Reset Game Data"
-	var text = "Are you sure to reset overall game data?\n"
-	text += "We will restart this game back to title screen if you confirm.\n"
-	text += "We will delete all player related data, if you confirm."
+	var text = "Reset overall game data?\n"
+	text += "All data related to player will be erased."
+	#text += "We will delete all player related data, if you confirm."
 	dialog.dialog_text = text
 	dialog.popup_exclusive = true
 	dialog.connect("confirmed", self, "_on_ResetOverallGame_confirmed")

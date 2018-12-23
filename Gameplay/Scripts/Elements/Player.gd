@@ -10,6 +10,8 @@ var MAX_STAM = 5
 signal first_move(start_time)
 signal player_finished(player_node)
 signal recovery()
+signal add_stam(id)
+signal delete_stam(id)
 
 export(int) var id = 0
 export(Vector2) var finish_line
@@ -68,6 +70,9 @@ func set_character(val):
 		stamina = MAX_STAM
 		if Global.player_1_character_id == Global.player_2_character_id:
 			_init_change_color_modulation(id)
+		# Set stam assets
+		$StamContainer.init_stam_bars(stamina)
+
 func _ready():
 	if jump_sound != null:
 		$Jump.stream = jump_sound
@@ -89,7 +94,7 @@ func _check_started():
 
 func _squared_dist_two_coord(coord1, coord2):
 	return pow(coord1[0] - coord2[0],2) + pow(coord1[1] - coord2[1], 2)
-
+	
 func _physics_process(delta):
 	if (player_active):
 		var anim = null
@@ -106,6 +111,7 @@ func _physics_process(delta):
 					$Sprite.frame = 0
 					anim = "dash-right"
 					dash_sound.play(0)
+					emit_signal("delete_stam", stamina)
 					stamina -= 1
 					print (stamina)
 					boost = true
@@ -124,6 +130,7 @@ func _physics_process(delta):
 					$Sprite.frame = 0
 					anim = "dash-left"
 					dash_sound.play(0)
+					emit_signal("delete_stam", stamina)
 					stamina -= 1
 					print (stamina)
 					boost = true
@@ -184,6 +191,7 @@ func _on_Sprite_animation_finished():
 
 func _on_Timer_timeout():
 	stamina += 1
+	emit_signal("add_stam", stamina)
 	current_max_speed = SPEED
 	print(stamina)
 	boostclick = 0

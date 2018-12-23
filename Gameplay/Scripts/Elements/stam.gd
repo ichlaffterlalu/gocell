@@ -13,7 +13,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	v = player1.STAMINA
+	v = player1.stamina
 	self.text = str(v)
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

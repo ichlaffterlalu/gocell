@@ -16,7 +16,7 @@ export(Vector2) var finish_line
 export(bool) var finish_x_after # if yes, use position.x > finish_line.x in finish condition
 export(bool) var finish_y_below # if no, use position.y < finish_line.y in finish condition
 export(String) var player_name
-export(Texture) var player_texture
+export(SpriteFrames) var player_sprite
 export(AudioStreamOGGVorbis) var jump_sound
 
 var current_max_speed = SPEED
@@ -62,10 +62,10 @@ func set_character(val):
 		SPEED = character["top_speed"]
 		ACCEL = character["acceleration"]
 		MAX_STAM = character["stamina"]
-		#player_texture = load(character["texture_address"])
+		player_sprite = load(character["sprite_address"]).instance().frames
+		$Sprite.frames = player_sprite
 		current_max_speed = SPEED
 		stamina = MAX_STAM
-		#$Sprite.set_texture(player_texture)
 		if Global.player_1_character_id == Global.player_2_character_id:
 			_init_change_color_modulation(id)
 func _ready():

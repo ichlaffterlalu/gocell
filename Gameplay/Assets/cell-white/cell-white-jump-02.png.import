@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white cell.png-3b1d1ac39509eb08f8c78e01854eb8a8.stex"
+path="res://.import/cell-white-jump-02.png-43e2349f55f2a8b6d9f6fc53155f03f0.stex"
 
 [deps]
 
-source_file="res://Gameplay/Assets/white cell.png"
-dest_files=[ "res://.import/white cell.png-3b1d1ac39509eb08f8c78e01854eb8a8.stex" ]
+source_file="res://Gameplay/Assets/cell-white/cell-white-jump-02.png"
+dest_files=[ "res://.import/cell-white-jump-02.png-43e2349f55f2a8b6d9f6fc53155f03f0.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

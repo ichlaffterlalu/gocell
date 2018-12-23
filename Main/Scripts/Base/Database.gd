@@ -19,6 +19,7 @@ func _ready():
 	query += "id int NOT NULL,";
 	query += "name char(200) NOT NULL,";
 	query += "texture_address text NOT NULL,";
+	query += "sprite_address text NOT NULL,";
 	query += "stamina int NOT NULL,";
 	query += "top_speed real NOT NULL,";
 	query += "acceleration real NOT NULL,";
@@ -50,9 +51,11 @@ func _ready():
 	result = db.query(query);
 
 func _init_characters(db):
-	var query = "INSERT INTO Characters(id, name, texture_address, stamina, top_speed, acceleration) VALUES ";
-	query += "(1, 'Red Blood Cell', 'res://Gameplay/Assets/red cell.png', 5, 200, 12.5), ";
-	query += "(2, 'White Blood Cell', 'res://Gameplay/Assets/white cell.png', 7, 200, 10);";
+	var query = "INSERT INTO Characters(id, name, sprite_address, texture_address, stamina, top_speed, acceleration) VALUES ";
+	query += "(1, 'Red Blood Cell', 'res://Gameplay/Scenes/Elements/Sprite_Cell_Red.tscn', ";
+	query += "'res://Gameplay/Assets/cell-red/cell-red-idle-0.png', 5, 200, 12.5), ";
+	query += "(2, 'White Blood Cell', 'res://Gameplay/Scenes/Elements/Sprite_Cell_White.tscn', ";
+	query += "'res://Gameplay/Assets/cell-white/cell-white-idle-0.png', 7, 200, 10);";
 	return db.query(query);
 
 func close():

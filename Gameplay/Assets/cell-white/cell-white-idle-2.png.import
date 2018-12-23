@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red cell 22x22.png-70e56e9c1e6659ec82749bbea5427baf.stex"
+path="res://.import/cell-white-idle-2.png-08fcd641fcbb3f0541ee728ae01522db.stex"
 
 [deps]
 
-source_file="res://Gameplay/Assets/red cell 22x22.png"
-dest_files=[ "res://.import/red cell 22x22.png-70e56e9c1e6659ec82749bbea5427baf.stex" ]
+source_file="res://Gameplay/Assets/cell-white/cell-white-idle-2.png"
+dest_files=[ "res://.import/cell-white-idle-2.png-08fcd641fcbb3f0541ee728ae01522db.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

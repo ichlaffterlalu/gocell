@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/stam-add.ogg-0030bd02128efc4be4e3003a285bbb04.oggstr"
+
+[deps]
+
+source_file="res://Gameplay/Assets/sfx/stam-add.ogg"
+dest_files=[ "res://.import/stam-add.ogg-0030bd02128efc4be4e3003a285bbb04.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

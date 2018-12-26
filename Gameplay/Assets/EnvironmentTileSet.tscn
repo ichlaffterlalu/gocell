@@ -583,4 +583,24 @@ build_mode = 0
 polygon = PoolVector2Array( 0, 0, 0, 16, 16, 16, 16, 0 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
+[node name="Checkerboard" type="Sprite" parent="." index="25"]
+
+position = Vector2( 96, 48 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 96, 48, 16, 16 )
+region_filter_clip = true
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="Guide" type="Sprite" parent="." index="26"]
+
+position = Vector2( 112, 48 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 112, 48, 16, 16 )
+region_filter_clip = true
+_sections_unfolded = [ "Offset", "Region", "Transform", "Z Index" ]
+
 

@@ -26,15 +26,14 @@ func _ready():
 	query += "PRIMARY KEY (id)";
 	query += ");";
 	result = db.query(query);
-	if (result):
-		result = _init_characters(db);
+	result = _init_characters(db);
 
 	# Create users table
 	query = "CREATE TABLE Users (";
 	query += "name char(50) NOT NULL,";
 	query += "character_id int DEFAULT 1 NOT NULL,";
 	query += "PRIMARY KEY (name),";
-	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id) ON DELETE SET DEFAULT";
+	query += "CONSTRAINT FK_Character FOREIGN KEY (character_id) REFERENCES Characters(id) ON DELETE NO ACTION";
 	query += ");";
 	result = db.query(query);
 
@@ -56,7 +55,8 @@ func _init_characters(db):
 	query += "'res://Gameplay/Assets/cell-red/cell-red-idle-0.png', 5, 200, 12.5), ";
 	query += "(2, 'White Blood Cell', 'res://Gameplay/Scenes/Elements/Sprite_Cell_White.tscn', ";
 	query += "'res://Gameplay/Assets/cell-white/cell-white-idle-0.png', 7, 200, 10);";
-	return db.query(query);
+	var result = db.query(query);
+	return result;
 
 func close():
 	# Close database
@@ -152,8 +152,14 @@ func reset_leaderboards():
 
 func reset_game_data():
 	var result = []
-	var query = "DELETE FROM Records;"
+	var query = "DROP TABLE Records;"
 	result.append(db.query(query))
-	query = "DELETE FROM Users;"
+	query = "DROP TABLE Users;"
 	result.append(db.query(query))
+	query = "DROP TABLE Characters;"
+	result.append(db.query(query))
+	
+	db.close()
+	db = SQLite.new()
+	DB._ready()
 	return result

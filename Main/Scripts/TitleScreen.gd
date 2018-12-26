@@ -23,7 +23,8 @@ func _on_ChangeScene_Button_pressed(scene_to_load):
 	$Fade.fade_in()
 
 func _on_Gameplay_Button_pressed(gameplay_type):
-	$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(false)
+	$MainPage/Container/HBox/RightSide/Dashboard/Cell/a.toggle(false)
+	$MainPage/Container/HBox/RightSide/Dashboard/Cell/b.toggle(false)
 	$MainPage/Container/HBox/RightSide/Dashboard/Settings.toggle(false)
 	_current_subscene = "select_stage"
 	$MainPage/Container/HBox/RightSide/Dashboard/SelectStage._on_Button_pressed(gameplay_type)
@@ -31,12 +32,14 @@ func _on_Gameplay_Button_pressed(gameplay_type):
 func _on_Settings_pressed():
 	if _current_subscene != "settings":
 		$MainPage/Container/HBox/RightSide/Dashboard/SelectStage.toggle(false)
-		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(false)
+		$MainPage/Container/HBox/RightSide/Dashboard/Cell/a.toggle(false)
+		$MainPage/Container/HBox/RightSide/Dashboard/Cell/b.toggle(false)
 		_current_subscene = "settings"
 		$MainPage/Container/HBox/RightSide/Dashboard/Settings.toggle(true)
 	else:
 		$MainPage/Container/HBox/RightSide/Dashboard/SelectStage.toggle(false)
-		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(true)
+		$MainPage/Container/HBox/RightSide/Dashboard/Cell/a.toggle(true)
+		$MainPage/Container/HBox/RightSide/Dashboard/Cell/b.toggle(true)
 		$MainPage/Container/HBox/RightSide/Dashboard/Settings.toggle(false)
 		_current_subscene = ""
 
@@ -55,7 +58,8 @@ func _on_Fade_fade_in_finished():
 
 func _on_SelectStage_fade_out_finished():
 	if _current_subscene == "select_stage":
-		$MainPage/Container/HBox/RightSide/Dashboard/GodotLogo.toggle(true)
+		$MainPage/Container/HBox/RightSide/Dashboard/Cell/a.toggle(true)
+		$MainPage/Container/HBox/RightSide/Dashboard/Cell/b.toggle(true)
 		_current_subscene = ""
 
 

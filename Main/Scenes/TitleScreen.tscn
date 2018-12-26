@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main/Scripts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Main/Assets/Fonts/120.tres" type="DynamicFont" id=2]
@@ -6,13 +6,14 @@
 [ext_resource path="res://Main/Scripts/Menus/TitleScreenButton.gd" type="Script" id=4]
 [ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=5]
 [ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Main/Assets/icon.png" type="Texture" id=7]
+[ext_resource path="res://Gameplay/Assets/cell-white/cell-white-idle-0.png" type="Texture" id=7]
 [ext_resource path="res://Main/Scripts/Animations/GodotLogo.gd" type="Script" id=8]
 [ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Main/Assets/GoCell Main Menu.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-0.png" type="Texture" id=10]
+[ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Main/Assets/GoCell Main Menu.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Animation" id=1]
 
@@ -44,8 +45,101 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ), Vector2( 0, 100 ), Vector2( 100, 0 ), Vector2( 0, -100 ), Vector2( -100, 0 ) ]
+}
 
-[node name="TitleScreen" type="Control"]
+[sub_resource type="Animation" id=2]
+
+resource_name = "fade_in"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "fade_out"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "rotate"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0, 270.0, 359.99 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 4, 4 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 100, 0 ), Vector2( 0, -100 ), Vector2( -100, 0 ), Vector2( 0, 100 ), Vector2( 100, 0 ) ]
+}
+
+[node name="TitleScreen" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -408,8 +502,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 274.0
-margin_right = 438.0
+margin_left = 417.0
+margin_right = 581.0
 margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -427,32 +521,7 @@ text = "Settings"
 underline = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_colors", "custom_fonts" ]
 
-[node name="Help" type="LinkButton" parent="MainPage/Container/HBox/RightSide/GameOptions" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 478.0
-margin_right = 581.0
-margin_bottom = 48.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-custom_fonts/font = ExtResource( 3 )
-custom_constants/underline_spacing = 10
-toggle_mode = false
-enabled_focus_mode = 0
-shortcut = null
-group = null
-text = "Help?"
-underline = 1
-_sections_unfolded = [ "Anchor", "Size Flags", "custom_colors", "custom_fonts" ]
-
-[node name="Exit" type="LinkButton" parent="MainPage/Container/HBox/RightSide/GameOptions" index="2"]
+[node name="Exit" type="LinkButton" parent="MainPage/Container/HBox/RightSide/GameOptions" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -495,7 +564,7 @@ size_flags_vertical = 3
 use_top_left = false
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="GodotLogo" type="TextureRect" parent="MainPage/Container/HBox/RightSide/Dashboard" index="0"]
+[node name="Cell" type="Container" parent="MainPage/Container/HBox/RightSide/Dashboard" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -505,6 +574,22 @@ margin_left = 348.0
 margin_top = 251.0
 margin_right = 348.0
 margin_bottom = 251.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="a" type="TextureRect" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -100.0
+margin_right = -100.0
+rect_rotation = 210.337
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -517,18 +602,44 @@ stretch_mode = 4
 script = ExtResource( 8 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme" ]
 
-[node name="FadeAnimation" parent="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo" index="0" instance=ExtResource( 9 )]
+[node name="FadeAnimation" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell/a" index="0" instance=ExtResource( 9 )]
 
 anims/rotate = SubResource( 1 )
 
-[node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 10 )]
+[node name="b" type="TextureRect" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_right = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 8 )
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme" ]
+
+[node name="FadeAnimation" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell/b" index="0" instance=ExtResource( 9 )]
+
+anims/fade_in = SubResource( 2 )
+anims/fade_out = SubResource( 3 )
+anims/rotate = SubResource( 4 )
+
+[node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 11 )]
 
 margin_left = 168.0
 margin_top = 161.0
 margin_right = 528.0
 margin_bottom = 341.0
 
-[node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 11 )]
+[node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 12 )]
 
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -537,7 +648,7 @@ margin_top = 149.0
 margin_right = 592.0
 margin_bottom = 353.0
 
-[node name="Fade" parent="." index="1" instance=ExtResource( 12 )]
+[node name="Fade" parent="." index="1" instance=ExtResource( 13 )]
 
 margin_right = 640.0
 margin_bottom = 360.0
@@ -545,7 +656,7 @@ _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = true
@@ -556,7 +667,9 @@ bus = "Music"
 
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Exit" to="." method="_on_Exit_pressed"]
 
-[connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/GodotLogo" method="_on_FadeAnimation_animation_finished"]
+[connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/Cell/a/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/Cell/a" method="_on_FadeAnimation_animation_finished"]
+
+[connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/Cell/b/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/Cell/b" method="_on_FadeAnimation_animation_finished"]
 
 [connection signal="need_restart" from="MainPage/Container/HBox/RightSide/Dashboard/Settings" to="." method="_on_Settings_need_restart"]
 

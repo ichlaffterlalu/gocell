@@ -10,9 +10,9 @@ config_version=3
 
 [application]
 
-config/name="Go-Cell (Integration v2 Branch)"
+config/name="Go-Cell"
 run/main_scene="res://Main/Scenes/TitleScreen.tscn"
-config/icon="res://icon.png"
+config/icon="res://Gameplay/Assets/cell-red/cell-red-dash-left-01.png"
 
 [autoload]
 

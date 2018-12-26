@@ -5,9 +5,9 @@
 [ext_resource path="res://Gameplay/Scenes/Elements/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gameplay/Assets/sfx/jump-2.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Gameplay/Scenes/Elements/ParallaxBackground.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Gameplay/Assets/music/field of hopes and dreams.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Gameplay/Assets/music/GoCell Race theme.ogg" type="AudioStream" id=6]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]

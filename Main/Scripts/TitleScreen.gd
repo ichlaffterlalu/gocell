@@ -53,6 +53,7 @@ func _on_Exit_pressed():
 	scene_path_to_load = "exit_game"
 
 func _on_Fade_fade_in_finished():
+	_last_gameplay_type = ""
 	if scene_path_to_load == "exit_game":
 		get_tree().quit()
 	elif scene_path_to_load == "restart":

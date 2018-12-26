@@ -1,19 +1,21 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Main/Scripts/TitleScreen.gd" type="Script" id=1]
-[ext_resource path="res://Main/Assets/Fonts/120.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Main/Assets/Fonts/60.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Main/Scripts/Menus/TitleScreenButton.gd" type="Script" id=4]
-[ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=5]
-[ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Gameplay/Assets/cell-white/cell-white-idle-0.png" type="Texture" id=7]
-[ext_resource path="res://Main/Scripts/Animations/GodotLogo.gd" type="Script" id=8]
-[ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-0.png" type="Texture" id=10]
-[ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Main/Assets/GoCell Main Menu.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Main/Assets/title.png" type="Texture" id=2]
+[ext_resource path="res://Main/Assets/Fonts/120.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Main/Assets/Fonts/60.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Main/Scripts/Menus/TitleScreenButton.gd" type="Script" id=5]
+[ext_resource path="res://Main/Scripts/Menus/SelectSceneButton.gd" type="Script" id=6]
+[ext_resource path="res://Main/Assets/Fonts/28.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Gameplay/Assets/cell-white/cell-white-idle-0.png" type="Texture" id=8]
+[ext_resource path="res://Main/Scripts/Animations/GodotLogo.gd" type="Script" id=9]
+[ext_resource path="res://Main/Scenes/Animations/FadeAnimation.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Gameplay/Assets/cell-red/cell-red-idle-0.png" type="Texture" id=11]
+[ext_resource path="res://Main/Scripts/Menus/CellAnimManager.gd" type="Script" id=12]
+[ext_resource path="res://Main/Scenes/Partials/Settings.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Main/Scenes/Partials/SelectStage.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Main/Scenes/Animations/Fade.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Main/Assets/GoCell Main Menu.ogg" type="AudioStream" id=16]
 
 [sub_resource type="Animation" id=1]
 
@@ -58,44 +60,6 @@ tracks/2/keys = {
 "values": [ Vector2( -100, 0 ), Vector2( 0, 100 ), Vector2( 100, 0 ), Vector2( 0, -100 ), Vector2( -100, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-
-resource_name = "fade_in"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-
-resource_name = "fade_out"
-length = 0.5
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
 [sub_resource type="Animation" id=4]
 
 resource_name = "rotate"
@@ -137,6 +101,118 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 100, 0 ), Vector2( 0, -100 ), Vector2( -100, 0 ), Vector2( 0, 100 ), Vector2( 100, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "fade_in"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("a/OrbitAnim:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("b/OrbitAnim:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("a/OrbitAnim:play")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "rotate"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "fade_out"
+length = 0.7
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("a/OrbitAnim:playback_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("b/OrbitAnim:playback_speed")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("a/OrbitAnim:stop")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
 }
 
 [node name="TitleScreen" type="Control" index="0"]
@@ -219,7 +295,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 271.0
+margin_right = 268.0
 margin_bottom = 555.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -237,8 +313,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 271.0
-margin_bottom = 95.0
+margin_right = 268.0
+margin_bottom = 92.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -249,21 +325,30 @@ size_flags_stretch_ratio = 0.3
 use_top_left = false
 _sections_unfolded = [ "Margin", "Size Flags", "Theme" ]
 
-[node name="Title" type="Label" parent="MainPage/Container/HBox/LeftSide/CenterContainer" index="0"]
+[node name="title" type="Sprite" parent="MainPage/Container/HBox/LeftSide/CenterContainer" index="0"]
 
+position = Vector2( 263.715, 58.2915 )
+scale = Vector2( 0.661743, 0.661743 )
+texture = ExtResource( 2 )
+
+[node name="Title" type="Label" parent="MainPage/Container/HBox/LeftSide/CenterContainer" index="1"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 271.0
-margin_bottom = 95.0
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 269.0
+margin_bottom = 93.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Go-Cell"
 percent_visible = 1.0
 lines_skipped = 0
@@ -276,9 +361,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 135.0
-margin_right = 271.0
-margin_bottom = 440.0
+margin_top = 132.0
+margin_right = 268.0
+margin_bottom = 439.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -295,9 +380,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 2.0
-margin_right = 271.0
-margin_bottom = 142.0
+margin_top = 3.0
+margin_right = 268.0
+margin_bottom = 143.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -323,7 +408,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/underline_spacing = 10
 toggle_mode = false
 enabled_focus_mode = 0
@@ -331,8 +416,8 @@ shortcut = null
 group = null
 text = "Start Game"
 underline = 1
-script = ExtResource( 4 )
-_sections_unfolded = [ "Size Flags", "custom_fonts" ]
+script = ExtResource( 5 )
+_sections_unfolded = [ "Material", "Pause", "Size Flags", "custom_fonts" ]
 gameplay_type = "Gameplay"
 
 [node name="TimeTrial" type="LinkButton" parent="MainPage/Container/HBox/LeftSide/MenuButtons/Gameplay" index="1"]
@@ -351,7 +436,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/underline_spacing = 10
 toggle_mode = false
 enabled_focus_mode = 0
@@ -359,7 +444,7 @@ shortcut = null
 group = null
 text = "Time Trial"
 underline = 1
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_fonts" ]
 gameplay_type = "TimeTrial"
 
@@ -369,9 +454,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 162.0
-margin_right = 271.0
-margin_bottom = 302.0
+margin_top = 163.0
+margin_right = 268.0
+margin_bottom = 303.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -397,7 +482,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/underline_spacing = 10
 toggle_mode = false
 enabled_focus_mode = 0
@@ -405,7 +490,7 @@ shortcut = null
 group = null
 text = "Leaderboards"
 underline = 1
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
 scene_to_load = "res://Leaderboards/Scenes/Leaderboards.tscn"
 
@@ -425,7 +510,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/underline_spacing = 10
 toggle_mode = false
 enabled_focus_mode = 0
@@ -433,7 +518,7 @@ shortcut = null
 group = null
 text = "Credits"
 underline = 1
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_fonts", "custom_styles" ]
 scene_to_load = "res://Credits/Scenes/Credits.tscn"
 
@@ -443,16 +528,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 480.0
-margin_right = 271.0
-margin_bottom = 555.0
+margin_top = 479.0
+margin_right = 268.0
+margin_bottom = 554.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 text = "by Gold Cell - Game Development Course - Fasilkom UI - v1.0.0"
 autowrap = true
 percent_visible = 1.0
@@ -466,7 +551,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 311.0
+margin_left = 308.0
 margin_right = 1008.0
 margin_bottom = 555.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -480,11 +565,12 @@ _sections_unfolded = [ "Margin", "Size Flags" ]
 
 [node name="GameOptions" type="HBoxContainer" parent="MainPage/Container/HBox/RightSide" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 697.0
+margin_right = 700.0
 margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -502,8 +588,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 417.0
-margin_right = 581.0
+margin_left = 420.0
+margin_right = 584.0
 margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -511,7 +597,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/underline_spacing = 10
 toggle_mode = false
 enabled_focus_mode = 0
@@ -527,8 +613,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 621.0
-margin_right = 697.0
+margin_left = 624.0
+margin_right = 700.0
 margin_bottom = 48.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -536,7 +622,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/underline_spacing = 10
 toggle_mode = false
 enabled_focus_mode = 0
@@ -553,7 +639,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 52.0
-margin_right = 697.0
+margin_right = 700.0
 margin_bottom = 555.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -570,9 +656,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 348.0
+margin_left = 350.0
 margin_top = 251.0
-margin_right = 348.0
+margin_right = 350.0
 margin_bottom = 251.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -580,34 +666,37 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Mouse", "Size Flags", "Theme", "Visibility" ]
 
 [node name="a" type="TextureRect" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -100.0
 margin_right = -100.0
-rect_rotation = 210.337
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 4
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme" ]
 
-[node name="FadeAnimation" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell/a" index="0" instance=ExtResource( 9 )]
+[node name="OrbitAnim" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell/a" index="0" instance=ExtResource( 10 )]
 
 anims/rotate = SubResource( 1 )
+_sections_unfolded = [ "Pause", "Playback Options" ]
 
 [node name="b" type="TextureRect" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -620,43 +709,56 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 expand = true
 stretch_mode = 4
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Margin", "Material", "Rect", "Theme" ]
 
-[node name="FadeAnimation" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell/b" index="0" instance=ExtResource( 9 )]
+[node name="OrbitAnim" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell/b" index="0" instance=ExtResource( 10 )]
 
-anims/fade_in = SubResource( 2 )
-anims/fade_out = SubResource( 3 )
 anims/rotate = SubResource( 4 )
+_sections_unfolded = [ "Playback Options" ]
 
-[node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 11 )]
+[node name="FadeAnim" type="AnimationPlayer" parent="MainPage/Container/HBox/RightSide/Dashboard/Cell" index="2"]
 
-margin_left = 168.0
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/fade_in = SubResource( 5 )
+anims/fade_out = SubResource( 6 )
+blend_times = [  ]
+script = ExtResource( 12 )
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="Settings" parent="MainPage/Container/HBox/RightSide/Dashboard" index="1" instance=ExtResource( 13 )]
+
+margin_left = 170.0
 margin_top = 161.0
-margin_right = 528.0
+margin_right = 530.0
 margin_bottom = 341.0
 
-[node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 12 )]
+[node name="SelectStage" parent="MainPage/Container/HBox/RightSide/Dashboard" index="2" instance=ExtResource( 14 )]
 
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
+margin_left = 106.0
 margin_top = 149.0
-margin_right = 592.0
+margin_right = 594.0
 margin_bottom = 353.0
 
-[node name="Fade" parent="." index="1" instance=ExtResource( 13 )]
+[node name="Fade" parent="." index="1" instance=ExtResource( 15 )]
 
+visible = false
 margin_right = 640.0
 margin_bottom = 360.0
 _sections_unfolded = [ "Pause", "Rect", "Visibility" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+[node name="MainMusic" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 14 )
+stream = ExtResource( 16 )
 volume_db = -10.0
 pitch_scale = 1.0
 autoplay = true
@@ -666,10 +768,6 @@ bus = "Music"
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Settings" to="." method="_on_Settings_pressed"]
 
 [connection signal="pressed" from="MainPage/Container/HBox/RightSide/GameOptions/Exit" to="." method="_on_Exit_pressed"]
-
-[connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/Cell/a/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/Cell/a" method="_on_FadeAnimation_animation_finished"]
-
-[connection signal="animation_finished" from="MainPage/Container/HBox/RightSide/Dashboard/Cell/b/FadeAnimation" to="MainPage/Container/HBox/RightSide/Dashboard/Cell/b" method="_on_FadeAnimation_animation_finished"]
 
 [connection signal="need_restart" from="MainPage/Container/HBox/RightSide/Dashboard/Settings" to="." method="_on_Settings_need_restart"]
 

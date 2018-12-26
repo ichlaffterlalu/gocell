@@ -37,10 +37,10 @@ func _init_sound_controllers():
 	sfx_control.value = _get_vol_percent(BUS_SFX)
 	master_control.value = _get_vol_percent(BUS_MASTER)
 	music_control.value = _get_vol_percent(BUS_MUSIC)
-	print("Audio Controls")
-	print(sfx_control.value)
-	print(master_control.value)
-	print(music_control.value)
+	#print("Audio Controls")
+	#print(sfx_control.value)
+	#print(master_control.value)
+	#print(music_control.value)
 
 func toggle(status):
 	if not status and self.is_visible_in_tree():

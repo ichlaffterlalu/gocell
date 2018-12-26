@@ -94,7 +94,7 @@ func get_records_best_10(user_name="", multiplayer=-1, map_name="", pick_one=fal
 		query += "LIMIT 1;"
 	else:
 		query += "LIMIT 10;"
-	print(query)
+	#print(query)
 	var result = db.fetch_array(query)
 	return result
 

@@ -31,9 +31,9 @@ func count_finish_time(timestamp_msec):
 	if len(_pause_start_timestamps) != 0:
 		result = _pause_start_timestamps[0] - _start_timestamp
 		result += timestamp_msec - _pause_stop_timestamps[-1]
-		print(timestamp_msec)
-		print(_start_timestamp)
-		print(result)
+		#print(timestamp_msec)
+		#print(_start_timestamp)
+		#print(result)
 	else:
 		result = timestamp_msec - _start_timestamp
 

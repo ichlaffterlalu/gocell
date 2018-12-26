@@ -11,7 +11,7 @@ func fade_out():
 	$FadeAnimation.play("fade_out")
 
 func toggle(status):
-	print(status)
+	#print(status)
 	if not status and self.is_visible_in_tree():
 		fade_out()
 	elif status and not self.is_visible_in_tree():

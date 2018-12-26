@@ -113,14 +113,14 @@ func _physics_process(delta):
 					dash_sound.play(0)
 					emit_signal("delete_stam", stamina)
 					stamina -= 1
-					print (stamina)
+					#print (stamina)
 					boost = true
 					boostclick += 1
 					#recoveryTime = OS.get_ticks_msec()
 					motion.x = lerp(motion.x +2000/2, SPEED, 0.0001)
 					current_max_speed = SPEED + 50 * (boostclick)
-			if boost:
-				print ("RIGHT BOOST. Current maximum speed = ",current_max_speed)
+			#if boost:
+				#print ("RIGHT BOOST. Current maximum speed = ",current_max_speed)
 
 
 		elif Input.is_action_just_pressed("ui_left_%s" % id):
@@ -132,12 +132,12 @@ func _physics_process(delta):
 					dash_sound.play(0)
 					emit_signal("delete_stam", stamina)
 					stamina -= 1
-					print (stamina)
+					#print (stamina)
 					boost = true
 					motion.x -= 1200/2
 					current_max_speed += 100/2
-					if boost:
-						print ("LEFT BOOST. Current maximum speed = ",current_max_speed)
+					#if boost:
+						#print ("LEFT BOOST. Current maximum speed = ",current_max_speed)
 
 		elif Input.is_action_pressed("ui_right_%s" % id):
 			_check_started()
@@ -172,7 +172,7 @@ func _physics_process(delta):
 				player_active = false
 				finish_time = GameplayVar.count_finish_time(OS.get_ticks_msec())
 
-				print ("Player ", id , " finish");
+				#print ("Player ", id , " finish");
 				emit_signal("player_finished", self)
 		motion = move_and_slide(motion, UP)
 		var diff = _squared_dist_two_coord(pos_before_2, pos_before_1) - _squared_dist_two_coord(pos_before_1, Vector2(position.x, position.y))
@@ -193,7 +193,7 @@ func _on_Timer_timeout():
 	stamina += 1
 	emit_signal("add_stam", stamina)
 	current_max_speed = SPEED
-	print(stamina)
+	#print(stamina)
 	boostclick = 0
 	if (stamina == MAX_STAM):
 		recov = false

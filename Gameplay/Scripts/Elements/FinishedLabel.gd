@@ -55,7 +55,7 @@ func _on_FadeAnimation_animation_finished(anim_name):
 
 
 func _on_Player_time_trial_lose(player_node):
-	print("hehe")
+	#print("Time trial lose")
 	$VBox/WinLose.text = player_node.player_name + " Lose!"
 	$VBox/Statistics.text = player_node.player_name + " can't beat it's own record right now :("
 	$FadeAnimation.play("fade_in")
